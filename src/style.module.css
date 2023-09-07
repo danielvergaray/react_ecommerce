@@ -1,0 +1,36 @@
+
+.contenedor{
+    display: flex;
+    justify-content: space-around;
+    background-color: red;
+    padding: 20px;
+    margin: 0;
+    color: yellow;
+    
+}
+.lista{
+    list-style: none;
+    cursor: pointer;
+}
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%; /* Opcional: Para que el NavBar ocupe todo el ancho de la pantalla */
+    background-color: #fff; /* Opcional: Estilo de fondo */
+    /* Otros estilos que desees aplicar */
+  }
+ 
+  .contenedorFooter{
+    display: flex;
+    justify-content: space-around;
+    background-color: black;
+    padding: 20px;
+    margin: 0;
+    color: white;
+    
+}
+.fullheight{
+    height: 80vh;
+    width: 100%;
+}
+
