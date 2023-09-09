@@ -23,8 +23,10 @@ const Slider = ({imagenesHero}) => {
             alt="First slide"
           />
         <Carousel.Caption>
-          <h3>{imagen.title}</h3>
-          <p>{imagen.subTitle}</p>
+          <h3 className={styles.textoLeft}>{imagen.title}</h3>
+          <p className={styles.textoLeft}>{imagen.subTitle}</p>
+          <button className={styles.btnMasInformacion}>Más Información</button>
+
         </Carousel.Caption>
       </Carousel.Item>
 

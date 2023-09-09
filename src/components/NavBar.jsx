@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../style.module.css";
+import { FaShoppingCart } from "react-icons/fa";
 
 const NavBar = ({ opciones }) => {
   return (
@@ -10,7 +11,9 @@ const NavBar = ({ opciones }) => {
             {opcion}
           </li>
         ))}
-
+        <li className={styles.lista}>
+          <FaShoppingCart />
+        </li>
       </ul>
     </div>
   );
