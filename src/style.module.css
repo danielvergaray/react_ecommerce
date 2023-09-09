@@ -18,9 +18,9 @@
 .navbar {
     position: fixed;
     top: 0;
-    width: 100%; /* Opcional: Para que el NavBar ocupe todo el ancho de la pantalla */
-    background-color: #fff; /* Opcional: Estilo de fondo */
-    /* Otros estilos que desees aplicar */
+    width: 100%; 
+    background-color: #fff; 
+    
   }
  
   .contenedorFooter{
