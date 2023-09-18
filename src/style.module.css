@@ -1,43 +1,74 @@
+.imagenesProductos {
+    width: 100px;
+}
 
-.contenedor{
+.cardsContainer {
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+}
+
+.imgProductos {
+    width: 100px;
+    height: 200px;
+}
+
+.contenedorTotal {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.cardsInfoContainer {
+    width: 100px;
+}
+
+
+
+.contenedor {
     display: flex;
     justify-content: space-around;
     background-color: black;
     padding: 20px;
     margin: 0;
     color: white;
-    
+
 }
-.lista{
+
+.lista {
     list-style: none;
     cursor: pointer;
 }
-.lista:hover{
+
+.lista:hover {
     color: blue;
 }
+
 .navbar {
     position: fixed;
     top: 0;
-    width: 100%; 
-    background-color: #fff; 
+    width: 100%;
+    background-color: #fff;
     z-index: 100;
-    
-  }
- 
-  .contenedorFooter{
+
+}
+
+.contenedorFooter {
     display: flex;
     justify-content: space-around;
     background-color: black;
     padding: 20px;
     margin: 0;
     color: white;
-    
+
 }
-.fullheight{
+
+.fullheight {
     height: 80vh;
     width: 100vw;
 }
-.textoLeft{
+
+.textoLeft {
     text-align: left;
     position: relative;
     left: -60px;
@@ -45,23 +76,27 @@
     color: black;
     width: 50%;
 }
-.textoBlanco{
+
+.textoBlanco {
     color: white;
 }
-.btnMasInformacion{
+
+.btnMasInformacion {
     display: flex;
     justify-content: left;
 }
-.btnMasInformacion:hover{
+
+.btnMasInformacion:hover {
     background-color: blue;
 }
-.ingresoNombreContainer{
+
+.ingresoNombreContainer {
     display: flex;
     flex-direction: column;
     position: fixed;
     top: 50%;
     left: 25%;
-    
+
     padding: 50px;
     width: 100%;
     height: 100%;

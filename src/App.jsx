@@ -5,34 +5,22 @@ import FooterListContainer from "./components/footer/FooterListContainer";
 import SliderHeroListContainer from "./components/silderHero/SliderHeroListContainer";
 import styles from "./style.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import IngresoNombre from "./components/IngresarNombre";
-
+import PopUpBienvenidaList from "./components/ventanaBievenida/popUpBienvenidaList";
+import ItemListContainer from "./components/item/ItemListContainer";
 
 const App = () => {
  
 
-  const [nombre, setNombre] = useState("");
-  const [mostrarSaludo, setMostrarSaludo] = useState(false);
-
-  // ingreso de nombre del usuario
-  const handleInputChange = (event) => {
-    setNombre(event.target.value);
-  };
-
-  // para mostrar el saludo
-  const mostrarSaludoFuncion = () => {
-    setMostrarSaludo(true);
-  };
-  0;
-
   return (
     <div>
-      <IngresoNombre />
+      <PopUpBienvenidaList />
       
       <NavBarListContainer/>
       
       <SliderHeroListContainer/>
       
+      <ItemListContainer/>
+
       <FooterListContainer/>
     </div>
   );

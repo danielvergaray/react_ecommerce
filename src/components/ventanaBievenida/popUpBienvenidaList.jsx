@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
-function IngresoNombre() {
+function PopUpBienvenidaList() {
   const [show, setShow] = useState(true); // Cambia el estado inicial de show a true para mostrar la alerta al cargar la página
 
   const handleClose = () => setShow(false);
@@ -37,4 +37,4 @@ function IngresoNombre() {
   );
 }
 
-export default IngresoNombre;
+export default PopUpBienvenidaList;
