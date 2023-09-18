@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "../style.module.css";
+import styles from "../../style.module.css";
 
-const Footer = ({ opciones }) => {
+const FooterList = ({ opciones }) => {
   return (
     <div >
       <ul className={styles.contenedorFooter}>
@@ -15,4 +15,4 @@ const Footer = ({ opciones }) => {
     </div>
   );
 };
-export default Footer;
+export default FooterList;

@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
-import styles from "../style.module.css";
+import styles from "../../style.module.css";
 
 
 
-const Slider = ({imagenesHero}) => {
+const SliderHeroList = ({imagenesHero}) => {
   const [index, setIndex] = useState(0);
 
   const handleSelect = (selectedIndex) => {
@@ -37,4 +37,4 @@ const Slider = ({imagenesHero}) => {
   );
 }
 
-export default Slider;
+export default SliderHeroList;

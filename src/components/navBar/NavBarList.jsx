@@ -1,16 +1,18 @@
 import React from "react";
-import styles from "../style.module.css";
+import styles from "../../style.module.css";
 import { FaShoppingCart } from "react-icons/fa";
 
-const NavBar = ({ opciones }) => {
+const NavBarList = ({ opciones }) => {
   return (
     <div className={styles.navbar}>
       <ul className={styles.contenedor}>
-        {opciones.map((opcion, index) => (
+        {
+        opciones.map((opcion, index) => (
           <li key={index} className={styles.lista}>
             {opcion}
           </li>
-        ))}
+        ))
+        }
         <li className={styles.lista}>
           <FaShoppingCart />
         </li>
@@ -18,4 +20,5 @@ const NavBar = ({ opciones }) => {
     </div>
   );
 };
-export default NavBar;
+
+export default NavBarList;
