@@ -1,27 +1,89 @@
-.imagenesProductos {
-    width: 100px;
-}
-
-.cardsContainer {
-    display: flex;
-    flex-direction: column;
-    min-width: 200px;
-}
-
-.imgProductos {
-    width: 100px;
-    height: 200px;
-}
-
-.contenedorTotal {
+.productosContainer {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+    justify-content: space-evenly;
+    padding: 50px 20px;
+
+}
+
+.cardsProductos {
+    padding: 40px;
+    width: 400px;
+    text-align: center;
+    margin: 30px 0;
+    display: grid;
+    grid-template-rows: 50% 30% 10% 10%;
+    border: 1px solid grey;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 700px;
+    margin: 30px 0;
+
+    background-color: #fff;
+    
+    box-shadow: 0 2px 4px rgba(219, 75, 75, 0.9);
+    
+    
+    
+
+}
+
+.productosImg {
+    width: 200px;
+    height: 235px;
+    grid-row: 1;
 }
 
 .cardsInfoContainer {
-    width: 100px;
+    padding: 20px;
+    display: grid;
+
 }
+
+.cardsTituloProducto {
+    margin: auto;
+    grid-row: 2;
+    font-size: 20px;
+}
+
+.cardsPrecio {
+    grid-row: 3;
+}
+
+.cardsInfoProducto {
+    text-align: left;
+    margin: 0;
+    padding: 30px 0;
+
+}
+
+.btnProductos {
+    grid-row: 4;
+}
+
+.tituloContainer {
+    text-align: center;
+    padding-top: 50px;
+
+}
+
+.titulo {
+    margin: 0;
+    font-size: 40px;
+}
+
+.btnVerMas {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 50px;
+}
+
+.spinnerContainer {
+    text-align: center;
+    padding: 20px 0;
+}
+
 
 
 
@@ -64,7 +126,7 @@
 }
 
 .fullheight {
-    height: 80vh;
+    height: 70vh;
     width: 100vw;
 }
 
