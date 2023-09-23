@@ -2,6 +2,8 @@ import React from 'react'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import styles from "../../style.module.css";
+import { Link } from 'react-router-dom';
+import Detalles from '../pages/Detalles';
 
 
 
@@ -24,7 +26,9 @@ const ItemList = ({ productos, verMas, btnMas }) => {
                         <h2 className={styles.cardsTituloProducto}>{producto.title} </h2>
                         <p className={styles.cardsPrecio}>Precio Online: {producto.price} $</p>
                         <div className={styles.btnProductos}>
-                            <button className="btn btn-primary">Go somewhere</button>
+                            <Link to={`/detalles/${producto.id}`}>
+                            <button className="btn btn-primary">Ver más</button>
+                            </Link>
                         </div>
                     </div>
 

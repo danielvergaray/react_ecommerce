@@ -8,6 +8,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import PopUpBienvenidaList from "./components/ventanaBievenida/popUpBienvenidaList";
 import ItemListContainer from "./components/item/ItemListContainer";
 import Home from "./components/pages/Home";
+import Detalles from "./components/pages/Detalles";
 import Productos from "./components/pages/Productos";
 import { Route, Routes } from "react-router-dom";
 
@@ -20,12 +21,13 @@ const App = () => {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Productos" element={<Productos />} />     
+        <Route path="/productos" element={<Productos />} />
+        <Route path="/detalles/:id" element={<Detalles/>}   />  
       </Routes>
 
       {/* <SliderHeroListContainer /> */}
 
-      <ItemListContainer />
+      {/* <ItemListContainer /> */}
 
       <FooterListContainer />
     </div>
