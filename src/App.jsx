@@ -7,21 +7,27 @@ import styles from "./style.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import PopUpBienvenidaList from "./components/ventanaBievenida/popUpBienvenidaList";
 import ItemListContainer from "./components/item/ItemListContainer";
+import Home from "./components/pages/Home";
+import Productos from "./components/pages/Productos";
+import { Route, Routes } from "react-router-dom";
 
 const App = () => {
- 
-
   return (
     <div>
       <PopUpBienvenidaList />
-      
-      <NavBarListContainer/>
-      
-      <SliderHeroListContainer/>
-      
-      <ItemListContainer/>
 
-      <FooterListContainer/>
+      <NavBarListContainer />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/Productos" element={<Productos />} />     
+      </Routes>
+
+      {/* <SliderHeroListContainer /> */}
+
+      <ItemListContainer />
+
+      <FooterListContainer />
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../../style.module.css";
 import { FaShoppingCart } from "react-icons/fa";
+import { Link, NavLink } from 'react-router-dom';
 
 const NavBarList = ({ opciones }) => {
   return (
