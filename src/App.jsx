@@ -11,6 +11,7 @@ import Home from "./components/pages/Home";
 import Detalles from "./components/pages/Detalles";
 import Productos from "./components/pages/Productos";
 import { Route, Routes } from "react-router-dom";
+import FiltradoCategoriasContainer from "./components/filtradoCategorias/FiltradoCategoriasContainer";
 
 const App = () => {
   return (
@@ -30,6 +31,8 @@ const App = () => {
       {/* <ItemListContainer /> */}
 
       <FooterListContainer />
+
+      <FiltradoCategoriasContainer/>
     </div>
   );
 };

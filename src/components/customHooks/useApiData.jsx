@@ -18,9 +18,10 @@ const useApiData = (url, page) => {
 
   useEffect(() => {
     setLoading(true);
-    setTimeout(() => {
+    getProducts(products);
+    /* setTimeout(() => {
       getProducts(products);
-    }, 1000);
+    }, 1000); */
     /* if (page === 20) {
             setBtnMas(false)
         } */

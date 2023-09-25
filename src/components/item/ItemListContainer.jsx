@@ -4,25 +4,16 @@ import CustomSpinner from "../reutilizables/Spinner";
 import useApiData from "../customHooks/useApiData";
 
 const ItemListContainer = () => {
-  /* const [products, setProducts] = useState([]); */
-  const [page, setPage] = useState(8);
-  /* const [loading, setLoading] = useState(true) */
+
+  const [page, setPage] = useState(4);
+
   const [btnMas, setBtnMas] = useState(true);
 
   const [loading, products, error, items] = useApiData(
     `https://fakestoreapi.com/products?limit=${page}`
   );
 
-  /* const getProducts = () => {
-    fetch(`https://fakestoreapi.com/products?limit=${page}`)
-      .then((infoApi) => infoApi.json())
-      .then((infoApiJson) => setProducts(infoApiJson))
-      .catch((error) => console.log(error))
-      .finally(() => {
-        setLoading(false)
-      })
-
-  } */
+ 
 
   useEffect(() => {
     /* setLoading(true)
