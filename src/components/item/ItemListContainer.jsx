@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ItemList from "./ItemList";
 import CustomSpinner from "../reutilizables/Spinner";
 import useApiData from "../customHooks/useApiData";
+import { useParams } from "react-router-dom";
 
 const ItemListContainer = () => {
 
@@ -9,23 +10,48 @@ const ItemListContainer = () => {
 
   const [btnMas, setBtnMas] = useState(true);
 
-  const [loading, products, error, items] = useApiData(
-    `https://fakestoreapi.com/products?limit=${page}`
-  );
+  const { id } = useParams()
 
- 
+
+  const URL =
+  id && id !== "TODOS"
+    ? `https://fakestoreapi.com/products/category/${id}`
+    : id === "TODOS"
+    ? `https://fakestoreapi.com/products?limit=${page}`
+    : `https://fakestoreapi.com/products?limit=${page}`;
+
+
+
+
+
+  const [loading, products, error, items] = useApiData(URL);
+
 
   useEffect(() => {
     /* setLoading(true)
     setTimeout(() => {
       getProducts(products)
     }, 1000) */
-    if (page === 20) {
+    if (page === 19) {
       setBtnMas(false);
     }
   }, [page]);
 
+  useEffect(() => {
+    if (URL === `https://fakestoreapi.com/products/category/jewelery` || URL === `https://fakestoreapi.com/products/category/men's clothing` || URL === `https://fakestoreapi.com/products/category/women's clothing` || URL === `https://fakestoreapi.com/products/category/electronics`) {
+      setBtnMas(false)
+    } else {
+      setBtnMas(true)
+    }
+  }, [products])
+
+
+
+
+
+
   const verMas = () => {
+
     if (page < 17) {
       setPage(page + 4);
     } else {
@@ -34,6 +60,7 @@ const ItemListContainer = () => {
     }
   };
 
+  /* console.log(items, products) */
   return (
     <div>
       {loading || items === null ? (

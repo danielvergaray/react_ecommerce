@@ -24,6 +24,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/productos" element={<Productos />} />
         <Route path="/detalles/:id" element={<Detalles/>}   />  
+        <Route path="/categoria/:id" element={<Productos/>}   />  
       </Routes>
 
       {/* <SliderHeroListContainer /> */}
@@ -32,7 +33,7 @@ const App = () => {
 
       <FooterListContainer />
 
-      <FiltradoCategoriasContainer/>
+    
     </div>
   );
 };

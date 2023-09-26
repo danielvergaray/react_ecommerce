@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from "../../style.module.css";
 import BarraCategoriasContainer from './barraCategoriasContainer';
+import { NavLink } from 'react-router-dom';
 
 const BarraCategorias = ({ categorias }) => {
 
@@ -9,9 +10,9 @@ const BarraCategorias = ({ categorias }) => {
         <div>
             <h2 className={styles.tituloCategoria}>Categorias</h2>
             <ul className={styles.listaCategorias}>
-                {categorias.map((producto) => (
+                {categorias.map((categoria) => (
 
-                    <li  /* onClick={<BarraCategoriasContainer/>} */ className={styles.barraCategoriasItem} key={producto}>{producto}</li>
+                    <NavLink to={`/categoria/${categoria}`}  className={styles.barraCategoriasItem} key={categoria}>{categoria}</NavLink>
 
                 ))}
             </ul>
