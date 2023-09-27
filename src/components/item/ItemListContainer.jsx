@@ -38,17 +38,12 @@ const ItemListContainer = () => {
   }, [page]);
 
   useEffect(() => {
-    if (URL === `https://fakestoreapi.com/products/category/jewelery` || URL === `https://fakestoreapi.com/products/category/men's clothing` || URL === `https://fakestoreapi.com/products/category/women's clothing` || URL === `https://fakestoreapi.com/products/category/electronics`) {
+    if (URL === `https://fakestoreapi.com/products/category/jewelery` || URL === `https://fakestoreapi.com/products/category/men's clothing` || URL === `https://fakestoreapi.com/products/category/women's clothing` || URL === `https://fakestoreapi.com/products/category/electronics` || page===20)  {
       setBtnMas(false)
     } else {
       setBtnMas(true)
     }
   }, [products])
-
-
-
-
-
 
   const verMas = () => {
 
@@ -60,7 +55,6 @@ const ItemListContainer = () => {
     }
   };
 
-  /* console.log(items, products) */
   return (
     <div>
       {loading || items === null ? (

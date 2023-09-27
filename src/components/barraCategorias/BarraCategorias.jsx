@@ -12,7 +12,7 @@ const BarraCategorias = ({ categorias }) => {
             <ul className={styles.listaCategorias}>
                 {categorias.map((categoria) => (
 
-                    <NavLink to={`/categoria/${categoria}`}  className={styles.barraCategoriasItem} key={categoria}>{categoria}</NavLink>
+                    <NavLink to={`/categoria/${categoria}`}  className= {( { isActive} ) => isActive  ? `${styles.linkActive}`: `${styles.barraCategoriasItem}`} key={categoria}>{categoria}</NavLink>
 
                 ))}
             </ul>

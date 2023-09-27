@@ -1,14 +1,15 @@
 import React from "react";
 import styles from "../../style.module.css";
+import { NavLink } from "react-router-dom";
 
 const FooterList = ({ opciones }) => {
   return (
-    <div >
+    <div className={styles.footer}>
       <ul className={styles.contenedorFooter}>
         {opciones.map((opcion, index) => (
-          <li key={index} className={styles.lista}>
+          <NavLink key={index} className={styles.listaFooter}>
             {opcion}
-          </li>
+          </NavLink>
         ))}
 
       </ul>

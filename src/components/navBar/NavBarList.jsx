@@ -8,7 +8,7 @@ const NavBarList = ({ opciones }) => {
     <div className={styles.navbar}>
       <ul className={styles.contenedor}>
         {opciones.map((opcion, index) => (
-          <NavLink key={index} className={( { isActive} ) => isActive ? `${styles.linkActive}` : ""} to={opcion}>
+          <NavLink key={index} className={( { isActive} ) => isActive ? `${styles.linkActive}` : `${styles.lista}`} to={opcion}>
             {index === 0 ? "Inicio" : opcion}
           </NavLink>
         ))}

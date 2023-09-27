@@ -21,9 +21,9 @@ const ItemList = ({ productos, verMas, btnMas }) => {
             </div>
 
             <div className={styles.seccionProductosProductos}>
-                <div className={styles.tituloContainer}>
+                {/* <div className={styles.tituloContainer}>
                     <h1 className={styles.titulo}>Productos</h1>
-                </div>
+                </div> */}
                 <div className={styles.productosContainer}>
                     {productos.map((producto) => (
 
@@ -49,7 +49,7 @@ const ItemList = ({ productos, verMas, btnMas }) => {
                 </div>
 
                 <div className={styles.btnVerMas}>
-                    {btnMas && <button className='btn btn-primary' onClick={verMas}>Ver más</button>}
+                    {btnMas && <button className='btn btn-primary' onClick={verMas}>Ver más productos</button>}
                 </div>
             </div>
 

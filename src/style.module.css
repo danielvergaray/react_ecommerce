@@ -13,23 +13,26 @@
 }
 
 .tituloCategoria {
-    font-size: 40px;
+    font-size: 30px;
     padding-bottom: 50px;
 }
 
 .barraCategoriasItem {
     list-style: none;
     padding: 10px 0;
-    width: min-content;
+    width: fit-content;
+    color: black;
+    text-transform: capitalize;
 }
 .barraCategoriasItem:hover {
     color: red;
+    width: fit-content;
 }
 
 .listaCategorias {
     padding: 0;
     cursor: pointer;
-    width: min-content;
+    width: 200px;
     display: flex;
     flex-direction: column;
 }
@@ -49,7 +52,7 @@
 
 .cardsProductos {
     padding: 40px;
-    width: 400px;
+    width: 300px;
     text-align: center;
     margin: 30px 0;
     display: grid;
@@ -57,7 +60,7 @@
     border: 1px solid grey;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    height: 700px;
+    height: 600px;
     margin: 30px 0;
 
     background-color: #fff;
@@ -125,6 +128,8 @@
 }
 
 
+/* NAV BAR LIST */
+
 
 
 .contenedor {
@@ -140,6 +145,7 @@
 .lista {
     list-style: none;
     cursor: pointer;
+    color: #fff;
 }
 
 .lista:hover {
@@ -150,25 +156,40 @@
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: #fff;
     z-index: 100;
-
+    color: white;
 }
 
 .linkActive {
     color: red;
-
-
+    text-transform: capitalize;
 }
+
+
+/* FOOTER */
 
 .contenedorFooter {
     display: flex;
     justify-content: space-around;
-    background-color: black;
+    width: 100%;
     padding: 20px;
     margin: 0;
     color: white;
+    
 
+}
+.footer {
+    
+    width: 100%;
+    background-color: black;
+    z-index: 100;
+
+}
+
+.listaFooter {
+    list-style: none;
+    cursor: pointer;
+    color: #fff;
 }
 
 .fullheight {
@@ -216,15 +237,15 @@
 /* ITEM DETAIL */
 
 .contenedorProductos {
-    background-color: gray;
-    padding: 80px;
+    background-color:rgba(0,0,0,.1);
+    padding: 80px 150px;
 }
 
 .contenedorDetalleProductos {
     display: grid;
     grid-template-columns: 55% 45%;
 
-    border: 1px solid black;
+    border: 1px solid #fff;
 
     background-color: #fff;
 
@@ -244,7 +265,7 @@
 }
 
 .contenedorInfo {
-    border: 1px solid gray;
+    border: 1px solid rgba(0,0,0,.2);
     border-radius: 10px;
     margin: 10px;
 }
