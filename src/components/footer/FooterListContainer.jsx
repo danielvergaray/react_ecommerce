@@ -5,7 +5,7 @@ const FooterListContainer = () => {
 
     const datosFooter= {
 
-        opcionesFooter: ["Contactanos", "Tiendas", "Ayuda", "Reportar un problema"],
+        opcionesFooter: ["Contacto", "Tiendas", "Ayuda", "Reportar un problema"],
     }
 
   return (

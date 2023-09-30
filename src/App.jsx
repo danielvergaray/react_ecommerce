@@ -12,11 +12,12 @@ import Detalles from "./components/pages/Detalles";
 import Productos from "./components/pages/Productos";
 import { Route, Routes } from "react-router-dom";
 import FiltradoCategoriasContainer from "./components/filtradoCategorias/FiltradoCategoriasContainer";
+import Contacto from "./components/pages/Contacto";
 
 const App = () => {
   return (
     <div>
-      <PopUpBienvenidaList />
+      {/* <PopUpBienvenidaList /> */}
 
       <NavBarListContainer />
 
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/productos" element={<Productos />} />
         <Route path="/detalles/:id" element={<Detalles/>}   />  
         <Route path="/categoria/:id" element={<Productos/>}   />  
+        <Route path="/contacto" element= {<Contacto/>} />
       </Routes>
 
       {/* <SliderHeroListContainer /> */}

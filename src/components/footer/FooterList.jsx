@@ -7,7 +7,7 @@ const FooterList = ({ opciones }) => {
     <div className={styles.footer}>
       <ul className={styles.contenedorFooter}>
         {opciones.map((opcion, index) => (
-          <NavLink key={index} className={styles.listaFooter}>
+          <NavLink key={index} className={({isActive}) => isActive ? `${styles.linkActive}`:`${styles.listaFooter}`} to={opcion}>
             {opcion}
           </NavLink>
         ))}
