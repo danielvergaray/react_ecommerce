@@ -4,7 +4,7 @@ import { useParams } from 'react-router'
 
 const Detalles = () => {
   const { id } = useParams()
-  console.log(id)
+  
   return (
     <div>
       <ItemDetailContainer id={id}/>

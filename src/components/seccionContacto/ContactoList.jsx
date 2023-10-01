@@ -25,12 +25,13 @@ const ContactoList = ({ funcionPrevenir }) => {
     console.log("enviar datos");
   };
 
-  const handleClick = () => {
-    funcionPrevenir();
+  const handleClick = (e) => {
+    e.preventDefault();
+    enviarDatos();
   };
 
   return (
-    <form action="" className={styles.formularioContainer}>
+    <form onSubmit={handleClick} action="" className={styles.formularioContainer}>
         <h1>FORMULARIO DE CONTACTO</h1>
       <div className={styles.formularioInfo}>
         <div className={styles.formularioRecuadro}>
@@ -54,7 +55,7 @@ const ContactoList = ({ funcionPrevenir }) => {
           <button
             className="btn btn-primary"
             type="submit"
-            onClick={handleClick}
+           /*  onClick={handleClick} */
           >
             Enviar
           </button>

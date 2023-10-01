@@ -310,3 +310,37 @@
   padding-top: 30px;
 }
 
+
+/* CART LIST */
+
+.formularioContainerCarrito {
+  padding: 100px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+ 
+}
+.formularioContainerCarrito h1{
+  font-size: 20px;
+  padding-left: 70px;
+  
+}
+.formularioRecuadroCarrito {
+  padding: 20px 0;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  width: 300px;
+  margin: auto;
+ 
+}
+.formularioRecuadroCarrito label{
+  grid-column: 1;
+}
+.formularioRecuadroCarrito input{
+  grid-column: 2;
+}
+.CartBtnContainer {
+  padding-left: 70px;
+  padding-top: 30px;
+}

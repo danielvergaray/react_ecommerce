@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../../style.module.css";
 
-const ItemDetail = ({ item }) => {
+const ItemDetail = ({ item, onAdd}) => {
 
   return (
     <div className={styles.contenedorProductos}>
@@ -15,7 +15,7 @@ const ItemDetail = ({ item }) => {
             <p className={styles.descripcionProductoDetalle}>{item.description}</p>
             <p className={styles.precioProductoDetalle}>$ {item.price}</p>
             <div className={styles.contenedorBtn}>
-              <button className="btn btn-primary">Agregar al Carrito</button>
+              <button onClick={onAdd} className="btn btn-primary">Agregar al Carrito</button>
             </div>
           </div>
 

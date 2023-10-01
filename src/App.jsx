@@ -13,29 +13,36 @@ import Productos from "./components/pages/Productos";
 import { Route, Routes } from "react-router-dom";
 import FiltradoCategoriasContainer from "./components/filtradoCategorias/FiltradoCategoriasContainer";
 import Contacto from "./components/pages/Contacto";
+import UserContextProvider from "./components/context/UserContextProvider";
+import User from "./components/pages/User";
+import CartContextProvider from "./components/context/cartContext/CartContextProvider";
 
 const App = () => {
   return (
     <div>
       {/* <PopUpBienvenidaList /> */}
 
-      <NavBarListContainer />
+      {/* <UserContextProvider> */}
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/productos" element={<Productos />} />
-        <Route path="/detalles/:id" element={<Detalles/>}   />  
-        <Route path="/categoria/:id" element={<Productos/>}   />  
-        <Route path="/contacto" element= {<Contacto/>} />
-      </Routes>
+      <CartContextProvider>
+        <NavBarListContainer />
 
-      {/* <SliderHeroListContainer /> */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/productos" element={<Productos />} />
+          <Route path="/detalles/:id" element={<Detalles />} />
+          <Route path="/categoria/:id" element={<Productos />} />
+          <Route path="/contacto" element={<Contacto />} />
+          <Route path="/user" element={<User />} />
+        </Routes>
 
-      {/* <ItemListContainer /> */}
+        {/* <SliderHeroListContainer /> */}
 
-      <FooterListContainer />
+        {/* <ItemListContainer /> */}
 
-    
+        <FooterListContainer />
+      </CartContextProvider>
+      {/* </UserContextProvider> */}
     </div>
   );
 };
