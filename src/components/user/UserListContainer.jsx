@@ -2,6 +2,8 @@ import React, { useContext, useState } from "react";
 import CartListContainer from "../cart/CartListContainer";
 import UserList from "./Userlist";
 import UserContext from "../context/UserContext";
+import CartContext from "../context/cartContext/CartContext";
+import CarritoVacioList from "../carritoVacio/CarritoVacioList";
 
 const UserListContainer = () => {
   const [userData, setUserData] = useState({
@@ -10,7 +12,7 @@ const UserListContainer = () => {
   });
 
 
-/*   const {userData}= useContext(UserContext) */
+  const {cart}= useContext(CartContext)
 
   const [showCart, setShowCart]= useState(false)  
   const [validation, setValidation] = useState(false);
@@ -29,16 +31,26 @@ const UserListContainer = () => {
       console.log("bienvenido");
       setShowCart(true)
       setLogin(true) // FALTA HACER QUE NO SE MUESTRE el LOGIN CUANDO YA SE HAYA Loggeado
+    
+     // Guardar datos de inicio de sesión en sessionStorage
+     sessionStorage.setItem("usuario", userData.user);
+     sessionStorage.setItem("contraseña", userData.pass);
+    
+    console.log(sessionStorage)
     }
   };
 
+
   return (
     <div>
-      {showCart && login ? (<CartListContainer />) : 
-      <UserList getUserData={getUserData} 
-      validation={validacionDatos} />}
-
-    </div>
+    {sessionStorage.length === 0 ? (
+      <UserList getUserData={getUserData} validation={validacionDatos} />
+    ) : (
+      <>
+        {cart.length === 0 ? <CarritoVacioList/> : <CartListContainer />}
+      </>
+    )}
+  </div>
   );
 };
 
