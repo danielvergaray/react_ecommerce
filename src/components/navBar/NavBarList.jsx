@@ -13,7 +13,7 @@ const NavBarList = ({ opciones }) => {
           </NavLink>
         ))}
         <li className={styles.lista}>
-          <NavLink to={"user"}><FaShoppingCart /></NavLink>
+          <NavLink to={"carrito"}><FaShoppingCart /></NavLink>
         </li>
       </ul>
     </div>

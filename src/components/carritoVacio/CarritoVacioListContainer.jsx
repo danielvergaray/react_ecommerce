@@ -1,8 +1,9 @@
 import React from 'react'
+import CarritoVacioList from './CarritoVacioList'
 
 const CarritoVacioListContainer = () => {
   return (
-    <div>CarritoVacioListContainer</div>
+    <CarritoVacioList/>
   )
 }
 

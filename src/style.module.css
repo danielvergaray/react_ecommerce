@@ -162,11 +162,15 @@
   padding: 20px;
   margin: 0;
   color: white;
+  
 }
 .footer {
   width: 100%;
   background-color: black;
   z-index: 100;
+  position: fixed;
+  bottom: 0;
+  left: 0;
 }
 
 .listaFooter {
@@ -343,4 +347,26 @@
 .CartBtnContainer {
   padding-left: 70px;
   padding-top: 30px;
+}
+
+/* CARRITOVACIOLIST */
+
+.carritoVacioContainer{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 50px;
+}
+.carritoVacioContainer h1{
+  font-size: 30px;
+}
+.carritoVacioImgContainer{
+ width: 60%;
+ margin: auto;
+ padding: 30px 0;
+}
+.carritoVacioImgContainer img{
+  width: 50%;
 }

@@ -16,6 +16,7 @@ import Contacto from "./components/pages/Contacto";
 import UserContextProvider from "./components/context/UserContextProvider";
 import User from "./components/pages/User";
 import CartContextProvider from "./components/context/cartContext/CartContextProvider";
+import Carrito from "./components/pages/Carrito";
 
 const App = () => {
   return (
@@ -33,6 +34,7 @@ const App = () => {
           <Route path="/detalles/:id" element={<Detalles />} />
           <Route path="/categoria/:id" element={<Productos />} />
           <Route path="/contacto" element={<Contacto />} />
+          <Route path="/carrito" element={<Carrito />} />
           <Route path="/user" element={<User />} />
         </Routes>
 
