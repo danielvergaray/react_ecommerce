@@ -1,11 +1,13 @@
 import React from 'react'
 import styles from "../../style.module.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-const UserList = ({getUserData, validation}) => {
+const UserList = ({ getUserData, validation, inicioSesion }) => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    
+
   };
 
 
@@ -27,13 +29,16 @@ const UserList = ({getUserData, validation}) => {
       </div>
 
       <div className={styles.CartBtnContainer}>
-        <button onClick={validation}
+        <button onClick={() => {
+          validation();
+          inicioSesion();
+        }}
           className="btn btn-primary"
           type="submit"
-          /*  onClick={handleClick} */
         >
           Continuar
         </button>
+        <ToastContainer />
         {/* {showModal && <CustomModal />} */}
       </div>
     </form>

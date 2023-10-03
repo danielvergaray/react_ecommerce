@@ -1,5 +1,8 @@
 import React from 'react'
 import { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import UserContext from './UserContext';
 
 const UserContextProvider = ({children}) => {
 
@@ -8,11 +11,30 @@ const UserContextProvider = ({children}) => {
         pass: "",
       });
 
-  return (
-    <UserContextProvider value={userData}>
+      const inicioSesion=()=>{
+console.log("Iniciaste sesion")
+
+        toast.success('Inicio de sesión exitoso', {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+          });
+      }
+
+      const values = {
+        userData,
+        inicioSesion
+      }
+
+  return <UserContext.Provider value={values}>
         {children}
-    </UserContextProvider>
-  )
+    </UserContext.Provider>
+  
 }
 
 export default UserContextProvider

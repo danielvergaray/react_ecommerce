@@ -1,7 +1,10 @@
 import React from "react";
 import styles from "../../style.module.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-const ItemDetail = ({ item, onAdd}) => {
+const ItemDetail = ({ item, onAdd, mensaje }) => {
+
 
   return (
     <div className={styles.contenedorProductos}>
@@ -15,7 +18,12 @@ const ItemDetail = ({ item, onAdd}) => {
             <p className={styles.descripcionProductoDetalle}>{item.description}</p>
             <p className={styles.precioProductoDetalle}>$ {item.price}</p>
             <div className={styles.contenedorBtn}>
-              <button onClick={onAdd} className="btn btn-primary">Agregar al Carrito</button>
+
+              <button onClick={() => {
+                mensaje();
+                onAdd();
+              }} className="btn btn-primary">Agregar al Carrito</button>
+              <ToastContainer /> {/* El toastify fue creado en el cartContinerProvider */}
             </div>
           </div>
 

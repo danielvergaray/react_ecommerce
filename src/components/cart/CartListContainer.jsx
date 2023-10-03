@@ -4,13 +4,16 @@ import CartContext from '../context/cartContext/CartContext'
 import CarritoVacioListContainer from '../carritoVacio/CarritoVacioListContainer'
 
 const CartListContainer = () => {
-  const { cart } = useContext(CartContext)
+  const { cart, removeItem, vaciarCarrito } = useContext(CartContext)
 
-console.log(cart)
+
   return (
     <div>
       {cart.length > 0 ? (
-        <CartList cart={cart} />
+        <CartList cart={cart} 
+        eliminarProducto={removeItem}
+        vaciarCarrito= {vaciarCarrito}
+        />
       ) : (
         <CarritoVacioListContainer />
       )}

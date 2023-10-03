@@ -1,6 +1,7 @@
 import React from 'react'
 import emptyCart from "../../components/imagenes/emptyCart.png";
 import styles from "../../style.module.css";
+import { Button } from 'react-bootstrap';
 
 const CarritoVacioList = () => {
     return (
@@ -10,7 +11,7 @@ const CarritoVacioList = () => {
                 <img src={emptyCart} alt="" />
             </div>
             <div>
-                <button>Regresar</button>
+                <Button>Regresar</Button>
             </div>
 
         </div>

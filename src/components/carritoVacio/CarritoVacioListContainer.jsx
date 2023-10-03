@@ -3,7 +3,10 @@ import CarritoVacioList from './CarritoVacioList'
 
 const CarritoVacioListContainer = () => {
   return (
-    <CarritoVacioList/>
+    <div>
+      <CarritoVacioList />
+    </div>
+
   )
 }
 

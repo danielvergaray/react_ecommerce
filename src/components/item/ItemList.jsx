@@ -21,9 +21,7 @@ const ItemList = ({ productos, verMas, btnMas }) => {
             </div>
 
             <div className={styles.seccionProductosProductos}>
-                {/* <div className={styles.tituloContainer}>
-                    <h1 className={styles.titulo}>Productos</h1>
-                </div> */}
+                
                 <div className={styles.productosContainer}>
                     {productos.map((producto) => (
 
