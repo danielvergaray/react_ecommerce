@@ -5,7 +5,7 @@ const NavBarListContainer = () => {
     
     const datosNavBar = {
         
-        opcionesMenu:["/", "Productos", "Promociones", "Noticias"],
+        opcionesMenu:["/", "Productos", "Noticias", "Iniciar sesión"],
 
     }
 

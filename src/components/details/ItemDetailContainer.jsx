@@ -14,9 +14,6 @@ const onAdd =()=>{
 }
 
 
-
-
-
   return <>{item !== null && <ItemDetail item={item} onAdd={onAdd} mensaje={mensaje} />}</>;
 };
 

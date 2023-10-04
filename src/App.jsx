@@ -17,6 +17,7 @@ import UserContextProvider from "./components/context/UserContextProvider";
 import User from "./components/pages/User";
 import CartContextProvider from "./components/context/cartContext/CartContextProvider";
 import Carrito from "./components/pages/Carrito";
+import IniciarSesion from "./components/pages/IniciarSesion";
 
 const App = () => {
   return (
@@ -36,6 +37,8 @@ const App = () => {
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/carrito" element={<Carrito />} />
           <Route path="/user" element={<User />} />
+          <Route path="/Iniciar sesión" element={<IniciarSesion />} />
+          
         </Routes>
 
         {/* <SliderHeroListContainer /> */}

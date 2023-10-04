@@ -4,7 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const ItemDetail = ({ item, onAdd, mensaje }) => {
-
+  
 
   return (
     <div className={styles.contenedorProductos}>

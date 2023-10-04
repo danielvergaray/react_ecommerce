@@ -5,20 +5,19 @@ import UserContext from "../context/UserContext";
 import CartContext from "../context/cartContext/CartContext";
 import CarritoVacioList from "../carritoVacio/CarritoVacioList";
 
-
 const UserListContainer = () => {
   const [userData, setUserData] = useState({
     user: "",
     pass: "",
   });
 
-  const { inicioSesion } = useContext(UserContext)
+  const { inicioSesion, nombreUsuario } = useContext(UserContext);
 
-  const { cart } = useContext(CartContext)
+  const { cart, mensaje } = useContext(CartContext);
 
-  const [showCart, setShowCart] = useState(false)
+  const [showCart, setShowCart] = useState(false);
   const [validation, setValidation] = useState(false);
-  const [login, setLogin] = useState(false)
+  const [login, setLogin] = useState(false);
 
   const getUserData = (event) => {
     setUserData({
@@ -30,29 +29,32 @@ const UserListContainer = () => {
   const validacionDatos = () => {
     if (userData.user && userData.pass) {
       setValidation(true);
-      console.log("bienvenido");
-      setShowCart(true)
-      setLogin(true) // FALTA HACER QUE NO SE MUESTRE el LOGIN CUANDO YA SE HAYA Loggeado
+
+      setShowCart(true);
+      setLogin(true); // FALTA HACER QUE NO SE MUESTRE el LOGIN CUANDO YA SE HAYA Loggeado
 
       // Guardar datos de inicio de sesión en sessionStorage
       sessionStorage.setItem("usuario", userData.user);
       sessionStorage.setItem("contraseña", userData.pass);
 
-      
+      // Actualizar el nombre de usuario en el contexto
+      nombreUsuario(userData.user);
     }
   };
-
 
   return (
     <div>
       {sessionStorage.length === 0 ? (
-        <UserList getUserData={getUserData} 
-        validation={validacionDatos} 
-        inicioSesion= {inicioSesion}
+        <UserList
+          getUserData={getUserData}
+          validation={validacionDatos}
+          inicioSesion={inicioSesion}
+          mensaje={mensaje}
         />
       ) : (
         <>
           {cart.length === 0 ? <CarritoVacioList /> : <CartListContainer />}
+          {sessionStorage.length > 0 && <UserList mensaje={mensaje} />}
         </>
       )}
     </div>

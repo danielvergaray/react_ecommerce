@@ -2,8 +2,12 @@ import React from 'react'
 import styles from "../../style.module.css";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import UserContext from '../context/UserContext';
+import CartContextProvider from '../context/cartContext/CartContextProvider';
 
-const UserList = ({ getUserData, validation, inicioSesion }) => {
+const UserList = ({ getUserData, validation, inicioSesion, mensaje }) => {
+
+  
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -32,6 +36,7 @@ const UserList = ({ getUserData, validation, inicioSesion }) => {
         <button onClick={() => {
           validation();
           inicioSesion();
+          mensaje()
         }}
           className="btn btn-primary"
           type="submit"

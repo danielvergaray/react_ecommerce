@@ -1,26 +1,34 @@
-import React, { useContext } from 'react'
-import CartList from './CartList'
-import CartContext from '../context/cartContext/CartContext'
-import CarritoVacioListContainer from '../carritoVacio/CarritoVacioListContainer'
+import React, { useContext } from "react";
+import CartList from "./CartList";
+import CartContext from "../context/cartContext/CartContext";
+import CarritoVacioListContainer from "../carritoVacio/CarritoVacioListContainer";
+import UserContext from "../context/UserContext";
+
 
 const CartListContainer = () => {
-  const { cart, removeItem, vaciarCarrito } = useContext(CartContext)
+  const { cart, removeItem, vaciarCarrito } = useContext(CartContext);
+  const { userData ,nombreUsuario  } = useContext(UserContext);
 
+const newUser=(e)=>{
+  nombreUsuario(e.target.value)
+}
+console.log(nombreUsuario)
 
   return (
     <div>
       {cart.length > 0 ? (
-        <CartList cart={cart} 
-        eliminarProducto={removeItem}
-        vaciarCarrito= {vaciarCarrito}
+        <CartList
+          cart={cart}
+          eliminarProducto={removeItem}
+          vaciarCarrito={vaciarCarrito}
+          newUser={newUser}
+          userData={userData}
         />
       ) : (
         <CarritoVacioListContainer />
       )}
     </div>
   );
-}
+};
 
-export default CartListContainer
-
-
+export default CartListContainer;
