@@ -3,6 +3,7 @@ import CartList from "./CartList";
 import CartContext from "../context/cartContext/CartContext";
 import CarritoVacioListContainer from "../carritoVacio/CarritoVacioListContainer";
 import UserContext from "../context/UserContext";
+import CarritoVacioList from "../carritoVacio/CarritoVacioList";
 
 
 const CartListContainer = () => {
@@ -12,7 +13,7 @@ const CartListContainer = () => {
 const newUser=(e)=>{
   nombreUsuario(e.target.value)
 }
-console.log(nombreUsuario)
+
 
   return (
     <div>
@@ -25,7 +26,8 @@ console.log(nombreUsuario)
           userData={userData}
         />
       ) : (
-        <CarritoVacioListContainer />
+        <CarritoVacioListContainer 
+        userData={userData}/>
       )}
     </div>
   );

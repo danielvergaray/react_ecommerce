@@ -122,25 +122,6 @@
 
 /* NAV BAR LIST */
 
-.contenedor {
-  display: flex;
-  justify-content: space-around;
-  background-color: black;
-  padding: 20px;
-  margin: 0;
-  color: white;
-}
-
-.lista {
-  list-style: none;
-  cursor: pointer;
-  color: #fff;
-}
-
-.lista:hover {
-  color: blue;
-}
-
 .navbar {
   position: fixed;
   top: 0;
@@ -148,35 +129,84 @@
   z-index: 100;
   color: white;
 }
+.contenedor {
+  display: flex;
+  justify-content: space-around;
+  background-color: black;
+  padding: 20px;
+  margin: 0;
+  color: white;
+  height: 80px;
+}
 
+.lista {
+  list-style: none;
+  cursor: pointer;
+  color: #fff;
+  margin: auto 0;
+}
+
+.lista:hover {
+  color: blue;
+}
+
+.nombreUsuario{
+  border: 1px solid blue;
+  border-radius: 10px;
+  background-color: #0070cc;
+  color: white;
+  padding: 8px;
+  text-transform: capitalize;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nombreUsuario p{
+  margin: auto;
+  padding: 0 5px;
+}
 .linkActive {
   color: red;
   text-transform: capitalize;
+  margin: auto 0;
 }
 
 /* FOOTER */
 
+.footer {
+  /* width: 100%;
+  background-color: black;
+  z-index: 1000;
+  height: 80px;
+  margin: auto; */
+  width: 100%;
+  z-index: 100;
+  color: white
+  
+}
 .contenedorFooter {
-  display: flex;
+  /* display: flex;
   justify-content: space-around;
   width: 100%;
   padding: 20px;
+  color: white; */
+  display: flex;
+  justify-content: space-around;
+  background-color: black;
+  padding: 20px;
   margin: 0;
   color: white;
+  height: 80px;;
   
 }
 
-.footer {
-  width: 100%;
-  background-color: black;
-  z-index: 1000;
-  
-}
+
 
 .listaFooter {
   list-style: none;
   cursor: pointer;
   color: #fff;
+  margin: auto 0;
 }
 
 .fullheight {
@@ -323,7 +353,16 @@
 
 
 /* CART LIST */
+.contenedorBase{
+  margin: 100px;
+}
 
+.bienvenido{
+  margin: 0;
+}
+.contenedorCerrarSesion{
+  font-size: 14px;
+}
 .formularioContainerCarrito {
   padding: 100px;
   text-align: center;
@@ -370,8 +409,9 @@
   transform: translate(-50%, -50%);
   text-align: center;
   padding: 50px;
-  height: fit-content;
+  /* height: fit-content; */
   margin-bottom: 100px;
+  min-height: 80vh;
 }
 
 .carritoVacioContainer h1 {

@@ -1,14 +1,17 @@
 import React from "react";
 import User from "../pages/User";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styles from "../../style.module.css";
 import { Button } from "react-bootstrap";
 
-const CartList = ({ cart, eliminarProducto, vaciarCarrito, newUser, userData }) => {
+const CartList = ({ cart, eliminarProducto, vaciarCarrito, logOut, userData }) => {
 
   return (
-    <div>
-      <p>Bienvenido, {userData.user} </p>
+    <div className={styles.contenedorBase}>
+      <p className={styles.bienvenido}>Bienvenido, {userData.user} </p>
+      <NavLink to="/user" className={styles.contenedorCerrarSesion} onClick={()=>{ vaciarCarrito(), logOut()}}>
+        <p>Cerrar sesión</p>
+      </NavLink>
       <div className={styles.mainContenedorCarrito}>
         <div className={styles.carritoContainer}>
           <h1 className={styles.CarritoTitulo}>

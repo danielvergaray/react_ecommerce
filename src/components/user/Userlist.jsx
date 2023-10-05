@@ -36,14 +36,14 @@ const UserList = ({ getUserData, validation, inicioSesion, mensaje }) => {
         <button onClick={() => {
           validation();
           inicioSesion();
-          mensaje()
+          /* mensaje() */
         }}
           className="btn btn-primary"
           type="submit"
         >
           Continuar
         </button>
-        <ToastContainer />
+        {/* <ToastContainer /> */}
         {/* {showModal && <CustomModal />} */}
       </div>
     </form>

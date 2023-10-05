@@ -11,9 +11,9 @@ const UserListContainer = () => {
     pass: "",
   });
 
-  const { inicioSesion, nombreUsuario } = useContext(UserContext);
+  const { inicioSesion, nombreUsuario, logged } = useContext(UserContext);
 
-  const { cart, mensaje } = useContext(CartContext);
+  const { cart /* mensaje */ } = useContext(CartContext);
 
   const [showCart, setShowCart] = useState(false);
   const [validation, setValidation] = useState(false);
@@ -34,8 +34,8 @@ const UserListContainer = () => {
       setLogin(true); // FALTA HACER QUE NO SE MUESTRE el LOGIN CUANDO YA SE HAYA Loggeado
 
       // Guardar datos de inicio de sesión en sessionStorage
-      sessionStorage.setItem("usuario", userData.user);
-      sessionStorage.setItem("contraseña", userData.pass);
+      localStorage.setItem("usuario", userData.user);
+      localStorage.setItem("contraseña", userData.pass);
 
       // Actualizar el nombre de usuario en el contexto
       nombreUsuario(userData.user);
@@ -44,17 +44,20 @@ const UserListContainer = () => {
 
   return (
     <div>
-      {sessionStorage.length === 0 ? (
+      {!logged ? (
         <UserList
           getUserData={getUserData}
           validation={validacionDatos}
           inicioSesion={inicioSesion}
-          mensaje={mensaje}
+          /* mensaje={mensaje} */
         />
       ) : (
         <>
           {cart.length === 0 ? <CarritoVacioList /> : <CartListContainer />}
-          {sessionStorage.length > 0 && <UserList mensaje={mensaje} />}
+          {!logged && <UserList getUserData={getUserData}
+            validation={validacionDatos}
+            inicioSesion={inicioSesion}
+            mensaje={mensaje} />}
         </>
       )}
     </div>

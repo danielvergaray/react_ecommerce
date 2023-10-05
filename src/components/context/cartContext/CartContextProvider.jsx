@@ -7,40 +7,44 @@ const CartContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
 
-const addItem = (item, quantity) =>{
+  const addItem = (item, quantity) => {
     setCart([
-        ...cart,
-        {
-            item, quantity
-        }
+      ...cart,
+      {
+        item, quantity
+      }
     ])
-}
+  }
 
-const removeItem =(id)=>{
-  
-  const newCart = cart.filter((producto) => producto.item.id !== id);
-  setCart(newCart);
-}
+  const removeItem = (id) => {
 
-const isInCart=(id)=>{
-  cart.find((producto)=> producto.item.id===id)
-}
+    const newCart = cart.filter((producto) => producto.item.id !== id);
+    setCart(newCart);
+  }
 
-const mensaje=()=>{
-  toast.success('Producto agregado exitosamente', {
-    position: "top-right",
-    autoClose: 2000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "dark",
+  const isInCart = (id) => {
+    cart.find((producto) => producto.item.id === id)
+  }
+
+  const mensaje = () => {
+    toast.success('Producto agregado exitosamente', {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
     });
-}
+  }
 
-const vaciarCarrito =()=>
-setCart([]);
+
+  const vaciarCarrito = () =>{
+    setCart([]);
+    
+  }
+    
 
   const values = {
     cart,
