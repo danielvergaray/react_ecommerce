@@ -8,6 +8,7 @@ const CarritoVacioListContainer = () => {
   const {logOut, userData} = useContext(UserContext);
   const {vaciarCarrito} = useContext(CartContext)
 
+
   return (
     <div>
       <CarritoVacioList 

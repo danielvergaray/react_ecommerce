@@ -39,7 +39,7 @@ const CartList = ({ cart, eliminarProducto, vaciarCarrito, logOut, userData }) =
                 <p className={styles.cardsPrecioCarrito}>
                   Precio Online: {producto.item.price} $
                 </p>
-                <p>Cantidad: 1</p>
+                <p>Cantidad: {producto.quantity}</p>
                 <div className={styles.btnEliminarCarrito}>
                   <Button onClick={() => eliminarProducto(producto.item.id)}>
                     Eliminar

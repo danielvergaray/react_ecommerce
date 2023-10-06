@@ -4,7 +4,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
 
-const NavBarList = ({ opciones, logged, userData }) => {
+const NavBarList = ({ opciones, logged, userData, cart }) => {
   return (
     <div className={styles.navbar}>
       <ul className={styles.contenedor}>
@@ -24,9 +24,14 @@ const NavBarList = ({ opciones, logged, userData }) => {
         <p>{userData.user}</p>
           
         </NavLink>}
-        <li className={styles.lista}>
+
+        {cart.length>0 ? (<NavLink to="/carrito"><FaShoppingCart />
+        <li className={styles.lista}></li></NavLink>): <NavLink to="/carritoVacio"><FaShoppingCart />
+        <li className={styles.lista}></li></NavLink>}
+        
+        {/* <li className={styles.lista}>
           <NavLink to={"carrito"}><FaShoppingCart /></NavLink>
-        </li>
+        </li> */}
       </ul>
     </div>
   );

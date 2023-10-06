@@ -18,6 +18,8 @@ import User from "./components/pages/User";
 import CartContextProvider from "./components/context/cartContext/CartContextProvider";
 import Carrito from "./components/pages/Carrito";
 import IniciarSesion from "./components/pages/IniciarSesion";
+import CarritoVacioListContainer from "./components/carritoVacio/CarritoVacioListContainer";
+import CarritoVacio from "./components/pages/CarritoVacio";
 
 const App = () => {
   return (
@@ -36,6 +38,7 @@ const App = () => {
           <Route path="/categoria/:id" element={<Productos />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/carrito" element={<Carrito />} />
+          <Route path="/carritoVacio" element={<CarritoVacio />} />
           <Route path="/user" element={<User />} />
           <Route path="/Iniciar sesión" element={<IniciarSesion />} />
           

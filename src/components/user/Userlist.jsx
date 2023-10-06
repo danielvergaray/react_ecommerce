@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import UserContext from '../context/UserContext';
 import CartContextProvider from '../context/cartContext/CartContextProvider';
 
-const UserList = ({ getUserData, validation, inicioSesion, mensaje }) => {
+const UserList = ({ getUserData, validation, inicioSesion, /* mensaje */ }) => {
 
   
 

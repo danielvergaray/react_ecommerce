@@ -44,16 +44,6 @@ const UserContextProvider = ({ children }) => {
 
     setLogged(true)
 
-    /* toast.success("Inicio de sesión exitoso", {
-      position: "top-right",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    }); */
     MySwal.fire({
       title: <strong>Bienvenido!</strong>,
       html: <i>Inicio de sesión exitoso</i>,

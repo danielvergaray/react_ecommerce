@@ -7,13 +7,19 @@ const CartContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
 
-  const addItem = (item, quantity) => {
+  const addItem = (item) => {
+
+    
     setCart([
       ...cart,
       {
-        item, quantity
+        item: {
+          item, quantity:""
+        }
+        /* quantity:"" */
       }
     ])
+    console.log(item)
   }
 
   const removeItem = (id) => {
@@ -23,7 +29,9 @@ const CartContextProvider = ({ children }) => {
   }
 
   const isInCart = (id) => {
-    cart.find((producto) => producto.item.id === id)
+    
+    const productoSeleccionado= cart.find((producto) => producto.item.id === id)
+    const posicionProductoEnCarrito = cart. findIndex(producto => producto.item.id===id)
   }
 
   const mensaje = () => {
