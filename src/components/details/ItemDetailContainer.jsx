@@ -9,8 +9,8 @@ const ItemDetailContainer = ({ id }) => {
 
 const {addItem, mensaje}= useContext(CartContext)
 
-const onAdd =()=>{
- addItem(item)
+const onAdd =(quantity)=>{
+ addItem(item, quantity)
 }
 
 

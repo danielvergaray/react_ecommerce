@@ -6,20 +6,30 @@ import 'react-toastify/dist/ReactToastify.css';
 const CartContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
-
-  const addItem = (item) => {
-
+  const isInCart = (id) => {
     
-    setCart([
+    return cart.some(product => product.id === id);
+  }
+  const addItem = (item, id, quantity) => {
+
+    if(isInCart(item.id)){
+      let position=cart.findIndex(producto => producto.id===id)
+      cart[position].quantity += quantity;
+      setCart([...cart]);
+    } else{
+      setCart([...cart, {...item, quantity:quantity}])
+    }
+    
+    /* setCart([
       ...cart,
       {
         item: {
           item, quantity:""
         }
-        /* quantity:"" */
+        
       }
-    ])
-    console.log(item)
+    ]) */
+    
   }
 
   const removeItem = (id) => {
@@ -28,11 +38,7 @@ const CartContextProvider = ({ children }) => {
     setCart(newCart);
   }
 
-  const isInCart = (id) => {
-    
-    const productoSeleccionado= cart.find((producto) => producto.item.id === id)
-    const posicionProductoEnCarrito = cart. findIndex(producto => producto.item.id===id)
-  }
+  
 
   const mensaje = () => {
     toast.success('Producto agregado exitosamente', {
