@@ -2,8 +2,10 @@ import React from "react";
 import styles from "../../style.module.css";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import CounterList from "../counter/CounterList";
+import CounterListContainer from "../counter/CounterListContainer";
 
-const ItemDetail = ({ item, onAdd, mensaje }) => {
+const ItemDetail = ({ item, onAdd, mensaje, count }) => {
   
 
   return (
@@ -18,12 +20,13 @@ const ItemDetail = ({ item, onAdd, mensaje }) => {
             <p className={styles.descripcionProductoDetalle}>{item.description}</p>
             <p className={styles.precioProductoDetalle}>$ {item.price}</p>
             <div className={styles.contenedorBtn}>
-
-              <button onClick={() => {
+            <CounterListContainer onAdd={onAdd} mensaje={mensaje} />
+              {/* <button onClick={() => {
                 mensaje();
                 onAdd();
-              }} className="btn btn-primary">Agregar al Carrito</button>
+              }} className="btn btn-primary">Agregar al Carrito</button> */}
               <ToastContainer /> {/* El toastify fue creado en el cartContinerProvider */}
+              
             </div>
           </div>
 

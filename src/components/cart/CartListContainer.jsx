@@ -13,7 +13,7 @@ const CartListContainer = () => {
 const newUser=(e)=>{
   nombreUsuario(e.target.value)
 }
-
+console.log(cart)
 
   return (
     <div>

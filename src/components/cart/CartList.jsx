@@ -23,21 +23,21 @@ const CartList = ({ cart, eliminarProducto, vaciarCarrito, logOut, userData }) =
 
           {cart.map((producto) => (
             <div
-              key={producto.item.id}
+              key={producto.id}
               className={styles.cardsProductosCarrito}
             >
               <div className={styles.productosImgContainerCarrito}>
                 <img
-                  src={producto.item.image}
+                  src={producto.image}
                   className={styles.productosImgCarrito}
                 />
               </div>
               <div className={styles.infoContainerCarrito}>
                 <h2 className={styles.cardsTituloProductoCarrito}>
-                  {producto.item.title}{" "}
+                  {producto.title}{" "}
                 </h2>
                 <p className={styles.cardsPrecioCarrito}>
-                  Precio Online: {producto.item.price} $
+                  Precio Online: {producto.price} $
                 </p>
                 <p>Cantidad: {producto.quantity}</p>
                 <div className={styles.btnEliminarCarrito}>

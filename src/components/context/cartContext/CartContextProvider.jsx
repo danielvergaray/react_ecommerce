@@ -12,8 +12,8 @@ const CartContextProvider = ({ children }) => {
   }
   const addItem = (item, id, quantity) => {
 
-    if(isInCart(item.id)){
-      let position=cart.findIndex(producto => producto.id===id)
+    if(isInCart(id)){
+      let position=cart.findIndex(producto => producto.item.id===id)
       cart[position].quantity += quantity;
       setCart([...cart]);
     } else{
@@ -23,9 +23,8 @@ const CartContextProvider = ({ children }) => {
     /* setCart([
       ...cart,
       {
-        item: {
-          item, quantity:""
-        }
+        
+        item, quantity
         
       }
     ]) */
@@ -68,6 +67,7 @@ const CartContextProvider = ({ children }) => {
     vaciarCarrito
   };
 
+  
   return <CartContext.Provider value={values}>{children}</CartContext.Provider>;
 };
 
