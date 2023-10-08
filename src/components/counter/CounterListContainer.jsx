@@ -4,7 +4,7 @@ import ItemDetailContainer from '../details/ItemDetailContainer'
 
 const CounterListContainer = ({onAdd, mensaje}) => {
 
-const [count, setCount]= useState(0)
+const [count, setCount]= useState(1)
 
 const increment= ()=>{
     setCount(count+1)

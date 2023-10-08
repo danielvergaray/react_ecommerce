@@ -10,24 +10,15 @@ const CartContextProvider = ({ children }) => {
     
     return cart.some(product => product.id === id);
   }
-  const addItem = (item, id, quantity) => {
+  const addItem = (item, quantity) => {
 
-    if(isInCart(id)){
-      let position=cart.findIndex(producto => producto.item.id===id)
+    if(isInCart(item.id)){
+      let position=cart.findIndex(producto => producto.id===item.id)
       cart[position].quantity += quantity;
       setCart([...cart]);
     } else{
       setCart([...cart, {...item, quantity:quantity}])
     }
-    
-    /* setCart([
-      ...cart,
-      {
-        
-        item, quantity
-        
-      }
-    ]) */
     
   }
 
@@ -36,8 +27,6 @@ const CartContextProvider = ({ children }) => {
     const newCart = cart.filter((producto) => producto.item.id !== id);
     setCart(newCart);
   }
-
-  
 
   const mensaje = () => {
     toast.success('Producto agregado exitosamente', {
@@ -52,10 +41,8 @@ const CartContextProvider = ({ children }) => {
     });
   }
 
-
   const vaciarCarrito = () =>{
-    setCart([]);
-    
+    setCart([]);  
   }
     
 
