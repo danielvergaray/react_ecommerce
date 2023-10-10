@@ -1,19 +1,40 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import CartList from "./CartList";
 import CartContext from "../context/cartContext/CartContext";
 import CarritoVacioListContainer from "../carritoVacio/CarritoVacioListContainer";
 import UserContext from "../context/UserContext";
 import CarritoVacioList from "../carritoVacio/CarritoVacioList";
-
+import { addDoc, collection, getFirestore } from "firebase/firestore"
 
 const CartListContainer = () => {
   const { cart, removeItem, vaciarCarrito } = useContext(CartContext);
   const { userData ,nombreUsuario  } = useContext(UserContext);
 
+const [orderId, setOrderId]=useState("")
+
 const newUser=(e)=>{
   nombreUsuario(e.target.value)
 }
-console.log(cart)
+
+const addToCart=()=>{
+  const purchase= {
+    buyer: {
+      id: 1,
+      name: "daniel",
+      mail: "mail"
+    },
+    items: cart,
+    date: new Date(),
+    total: 1000   
+  };
+  const db= getFirestore();
+  const orderCollection = collection (db, "orders");
+
+  addDoc(orderCollection, purchase)
+    .then(res=> setOrderId(res.id))
+    .catch(err=> console.log(err))
+}
+
 
   return (
     <div>
@@ -29,6 +50,10 @@ console.log(cart)
         <CarritoVacioListContainer 
         userData={userData}/>
       )}
+
+      {
+        orderId && <span>Orden creada: {orderId} </span>
+      }
     </div>
   );
 };

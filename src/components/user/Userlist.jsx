@@ -1,50 +1,48 @@
 import React from 'react'
 import styles from "../../style.module.css";
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import UserContext from '../context/UserContext';
-import CartContextProvider from '../context/cartContext/CartContextProvider';
 
-const UserList = ({ getUserData, validation, inicioSesion, /* mensaje */ }) => {
 
-  
+const UserList = ({ getUserData, validation, inicioSesion, userData }) => {
+
+    
 
   const handleClick = (e) => {
     e.preventDefault();
+    if(userData.user !== '' && userData.pass !== ''){
+      validation();
+      inicioSesion();
+    } else {
+      console.log("ingrese campos")
+    }
 
   };
 
 
   return (
-    <form onSubmit={handleClick} onChange={getUserData}
-      /* onSubmit={handleClick} */ action=""
+    <form onSubmit={handleClick} onChange={getUserData} action=""
       className={styles.formularioContainerCarrito}
     >
       <h1>Iniciar Sesión</h1>
 
       <div className={styles.formularioRecuadroCarrito}>
         <label htmlFor="text">Usuario</label>
-        <input type="text" name="user" id="email" /* onChange={formData} */ />
+        <input type="text" name="user" id="email" onChange={getUserData} required/>
       </div>
 
       <div className={styles.formularioRecuadroCarrito}>
         <label htmlFor="name">Contraseña</label>
-        <input type="text" name="pass" id="name" /* onChange={formData} */ />
+        <input type="password" name="pass" id="name" onChange={getUserData}required/>
       </div>
 
       <div className={styles.CartBtnContainer}>
-        <button onClick={() => {
-          validation();
-          inicioSesion();
-          /* mensaje() */
-        }}
+        <button 
           className="btn btn-primary"
           type="submit"
         >
           Continuar
         </button>
-        {/* <ToastContainer /> */}
-        {/* {showModal && <CustomModal />} */}
+        
       </div>
     </form>
   )

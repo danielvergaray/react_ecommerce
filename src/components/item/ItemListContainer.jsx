@@ -3,8 +3,11 @@ import ItemList from "./ItemList";
 import CustomSpinner from "../reutilizables/Spinner";
 import useApiData from "../customHooks/useApiData";
 import { useParams } from "react-router-dom";
+import { collection, getDocs, getFirestore, snapshotEqual, query, where } from "firebase/firestore"
 
 const ItemListContainer = () => {
+
+  const [items, setItems] = useState([])
 
   const [page, setPage] = useState(4);
 
@@ -13,18 +16,31 @@ const ItemListContainer = () => {
   const { id } = useParams()
 
 
-  const URL =
-  id && id !== "TODOS"
-    ? `https://fakestoreapi.com/products/category/${id}`
-    : id === "TODOS"
-    ? `https://fakestoreapi.com/products?limit=${page}`
-    : `https://fakestoreapi.com/products?limit=${page}`;
+/*   const URL =
+    id && id !== "TODOS"
+      ? `https://fakestoreapi.com/products/category/${id}`
+      : id === "TODOS"
+        ? `https://fakestoreapi.com/products?limit=${page}`
+        : `https://fakestoreapi.com/products?limit=${page}`;
 
 
+  const [loading, products, error, items] = useApiData(URL); */
+
+useEffect(() =>{
+  const baseDatos= getFirestore();
+  const itemCollection = collection(baseDatos, "productos")
 
 
+const filtrado= query(itemCollection, where("category", "==", "Acción"))
+/* getDocs(filtrado) */
 
-  const [loading, products, error, items] = useApiData(URL);
+  getDocs(itemCollection)
+  .then(snapshot =>{
+    const allData= snapshot.docs.map(document =>({id: document.id, ...document.data()}))
+    console.log(allData)
+    setItems(allData)
+  })
+}, [])
 
 
   useEffect(() => {
@@ -38,12 +54,12 @@ const ItemListContainer = () => {
   }, [page]);
 
   useEffect(() => {
-    if (URL === `https://fakestoreapi.com/products/category/jewelery` || URL === `https://fakestoreapi.com/products/category/men's clothing` || URL === `https://fakestoreapi.com/products/category/women's clothing` || URL === `https://fakestoreapi.com/products/category/electronics` || page===20)  {
+    if (URL === `https://fakestoreapi.com/products/category/jewelery` || URL === `https://fakestoreapi.com/products/category/men's clothing` || URL === `https://fakestoreapi.com/products/category/women's clothing` || URL === `https://fakestoreapi.com/products/category/electronics` || page === 20) {
       setBtnMas(false)
     } else {
       setBtnMas(true)
     }
-  }, [products])
+  }, /* [products] */)
 
   const verMas = () => {
 
@@ -57,10 +73,10 @@ const ItemListContainer = () => {
 
   return (
     <div>
-      {loading || items === null ? (
+      {/* loading || */ items === null ? (
         <CustomSpinner animation="border" message="Cargando..." />
       ) : (
-        <ItemList productos={products} verMas={verMas} btnMas={btnMas} />
+        <ItemList /* productos={products} */ productos={items} verMas={verMas} btnMas={btnMas} />
       )}
     </div>
   );

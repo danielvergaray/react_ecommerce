@@ -29,7 +29,7 @@ const ItemList = ({ productos, verMas, btnMas }) => {
                             <div className={styles.productosImgContainer}>
                                 <img src={producto.image} className={styles.productosImg} />
                             </div>
-                            <h2 className={styles.cardsTituloProducto}>{producto.title} </h2>
+                            <h2 className={styles.cardsTituloProducto}>{producto.name} </h2>
                             <p className={styles.cardsPrecio}>Precio Online: {producto.price} $</p>
                             <div className={styles.btnProductos}>
                                 <Link to={`/detalles/${producto.id}`}>

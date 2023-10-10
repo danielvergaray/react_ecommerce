@@ -43,6 +43,7 @@ const UserContextProvider = ({ children }) => {
   
 
     setLogged(true)
+    
 
     MySwal.fire({
       title: <strong>Bienvenido!</strong>,

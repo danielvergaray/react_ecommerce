@@ -13,7 +13,7 @@ const UserListContainer = () => {
 
   const { inicioSesion, nombreUsuario, logged } = useContext(UserContext);
 
-  const { cart /* mensaje */ } = useContext(CartContext);
+  const { cart } = useContext(CartContext);
 
   const [showCart, setShowCart] = useState(false);
   const [validation, setValidation] = useState(false);
@@ -46,18 +46,19 @@ const UserListContainer = () => {
     <div>
       {!logged ? (
         <UserList
+          userData={userData}
           getUserData={getUserData}
           validation={validacionDatos}
           inicioSesion={inicioSesion}
-          /* mensaje={mensaje} */
+        /* mensaje={mensaje} */
         />
       ) : (
         <>
           {cart.length === 0 ? <CarritoVacioList /> : <CartListContainer />}
-          {!logged && <UserList getUserData={getUserData}
+          {!logged && <UserList userData={userData} getUserData={getUserData}
             validation={validacionDatos}
             inicioSesion={inicioSesion}
-            mensaje={mensaje} />}
+          />}
         </>
       )}
     </div>
