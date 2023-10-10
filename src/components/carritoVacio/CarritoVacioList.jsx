@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useContext } from "react";
 import emptyCart from "../../components/imagenes/emptyCart.png";
 import styles from "../../style.module.css";
 import { Button } from 'react-bootstrap';
 import { Link, NavLink } from "react-router-dom";
+import UserContext from "../context/UserContext";
 
 
 
-const CarritoVacioList = ({userData, logOut, vaciarCarrito}) => {
-    console.log(userData)
+const CarritoVacioList = ({logOut, vaciarCarrito}) => {
+    const {userData} = useContext(UserContext);
+
     return (
 
         <div className={styles.contenedorBase}> 
@@ -20,9 +22,9 @@ const CarritoVacioList = ({userData, logOut, vaciarCarrito}) => {
                 <div className={styles.carritoVacioImgContainer}>
                     <img src={emptyCart} alt="" />
                 </div>
-                <div>
+                <NavLink to="/productos">
                     <Button>Regresar</Button>
-                </div>
+                </NavLink>
 
             </div>
 

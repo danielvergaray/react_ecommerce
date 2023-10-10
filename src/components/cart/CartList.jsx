@@ -8,8 +8,8 @@ const CartList = ({ cart, eliminarProducto, vaciarCarrito, logOut, userData }) =
 
   return (
     <div className={styles.contenedorBase}>
-      <p className={styles.bienvenido}>Bienvenido, {userData.user} </p>
-      <NavLink to="/user" className={styles.contenedorCerrarSesion} onClick={()=>{ vaciarCarrito(), logOut()}}>
+      <p className={styles.bienvenido}>Bienvenido {userData.user} </p>
+      <NavLink to="/user" className={styles.contenedorCerrarSesion} onClick={() => { vaciarCarrito(), logOut() }}>
         <p>Cerrar sesión</p>
       </NavLink>
       <div className={styles.mainContenedorCarrito}>
@@ -41,14 +41,18 @@ const CartList = ({ cart, eliminarProducto, vaciarCarrito, logOut, userData }) =
                 </p>
                 <p>Cantidad: {producto.quantity}</p>
                 <div className={styles.btnEliminarCarrito}>
-                  <Button onClick={() => eliminarProducto(producto.item.id)}>
+                  <Button onClick={() => eliminarProducto(producto.id, producto.quantity)}>
                     Eliminar
                   </Button>
                 </div>
               </div>
             </div>
           ))}
+          <NavLink to="/productos" style={{margin:"auto"}}>
+            <Button>Regresar</Button>
+          </NavLink>
         </div>
+
         <div className={styles.infoCompraContainer}>
           <h2>Resumen de la orden</h2>
           <div className={styles.infoCompraTotal}>

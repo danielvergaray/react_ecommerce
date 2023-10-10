@@ -22,10 +22,20 @@ const CartContextProvider = ({ children }) => {
     
   }
 
-  const removeItem = (id) => {
+  const removeItem = (id, quantity) => {
 
-    const newCart = cart.filter((producto) => producto.item.id !== id);
-    setCart(newCart);
+console.log(quantity)
+
+if(quantity===1){
+  const newCart = cart.filter((producto) => producto.id !== id);
+  setCart(newCart);
+} else {
+  quantity= quantity-1
+  console.log(quantity)
+}
+
+
+    
   }
 
   const mensaje = () => {
