@@ -1,18 +1,27 @@
-import React from 'react'
+import React from "react";
+import styles from "../../style.module.css";
 
-const CounterList = ({incrementar, disminuir, count, onAdd, mensaje}) => {
+const CounterList = ({ incrementar, disminuir, count, onAdd, mensaje }) => {
   return (
-    <div>
-        <button onClick={incrementar}>Agregar</button>
-        <span>{count} </span>
-        <button onClick={disminuir}>Disminuir</button>
-        {/* <button onClick={() => onAdd(count) }>Agregar al carrito</button> */}
-        <button onClick={() => {
-                mensaje();
-                onAdd(count);
-              }} className="btn btn-primary">Agregar al Carrito</button>
-    </div>
-  )
-}
+    <>
+      <div className={styles.contenedorBotones} style={{ textAlign: "left" }}>
+        <button className={styles.btnMasMenos} onClick={incrementar}>+</button>
+        <span style={{ margin:" auto" }}>{count} </span>
+        <button className={styles.btnMasMenos} onClick={disminuir}>-</button>
+        <div className={styles.contenedorBtnAgregar}>
+          <button  className="btn btn-primary"
+            onClick={() => {
+              mensaje();
+              onAdd(count);
+            }}
+           
+          >
+            Agregar al Carrito
+          </button>
+        </div>
+      </div>
+    </>
+  );
+};
 
-export default CounterList
+export default CounterList;

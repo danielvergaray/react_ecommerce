@@ -1,9 +1,17 @@
+*{
+  font-family:  Helvetica, Arial, sans-serif;
+
+  margin:0;
+  padding: 0;
+}
+
 /* ITEM LIST */
 
 .seccionProductosContenedor {
   display: grid;
   grid-template-columns: 25% 75%;
-  background-color: lightgray;
+  /* background-color: lightgray; */
+  background-color: #fff;
 }
 
 .barraCategoriasContenedor {
@@ -51,27 +59,28 @@
 }
 
 .cardsProductos {
-  padding: 40px;
-  width: 300px;
+  /* padding: 40px; */
+  width: 216px;
   text-align: center;
-  margin: 30px 0;
+  margin: auto;
   display: grid;
-  grid-template-rows: 50% 30% 10% 10%;
-  border: 1px solid grey;
+  grid-template-rows: 60% 15% 10% 15%;
+  /* border: 1px solid white; */
   border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  height: 600px;
-  margin: 30px 0;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  height: 350px;
+  /* margin: 30px 0; */
 
   background-color: #fff;
 
-  box-shadow: 0 2px 4px rgba(219, 75, 75, 0.9);
+  /* box-shadow: 0 2px 4px rgba(219, 75, 75, 0.9); */
 }
 
 .productosImg {
-  width: 200px;
-  height: 235px;
+  width: 100%;
+  height: 216px;
   grid-row: 1;
+  border-radius: 10px;
 }
 
 .cardsInfoContainer {
@@ -82,11 +91,14 @@
 .cardsTituloProducto {
   margin: auto;
   grid-row: 2;
-  font-size: 20px;
+  font-size: 16px;
+  text-align: left;
+  width: 100%;
 }
 
 .cardsPrecio {
   grid-row: 3;
+  text-align: left;
 }
 
 .cardsInfoProducto {
@@ -150,7 +162,7 @@
   color: blue;
 }
 
-.nombreUsuario{
+.nombreUsuario {
   border: 1px solid blue;
   border-radius: 10px;
   background-color: #0070cc;
@@ -161,7 +173,7 @@
   justify-content: center;
   align-items: center;
 }
-.nombreUsuario p{
+.nombreUsuario p {
   margin: auto;
   padding: 0 5px;
 }
@@ -181,8 +193,7 @@
   margin: auto; */
   width: 100%;
   z-index: 100;
-  color: white
-  
+  color: white;
 }
 .contenedorFooter {
   /* display: flex;
@@ -196,11 +207,8 @@
   padding: 20px;
   margin: 0;
   color: white;
-  height: 80px;;
-  
+  height: 80px;
 }
-
-
 
 .listaFooter {
   list-style: none;
@@ -251,62 +259,105 @@
 
 /* ITEM DETAIL */
 
-.contenedorProductos {
+.contenedorImagen {
   background-color: rgba(0, 0, 0, 0.1);
-  padding: 80px 150px;
+  /* padding: 80px 150px; */
+  width: 100%;
+  
+  height: 100px; /* Altura deseada */
+   
 }
 
-.contenedorDetalleProductos {
-  display: grid;
-  grid-template-columns: 55% 45%;
-
-  border: 1px solid #fff;
-
-  background-color: #fff;
-}
-
-.contenedorDetalleImg {
-  display: flex;
-  margin: auto;
-  grid-column: 1;
-  padding: 50px 100px;
+.contenedorProductos{
+  height: min-content;
 }
 
 .imgProductosDetalle {
-  width: 250px;
+  width: 100%;
+  height: 600px;
+  
 }
 
 .contenedorInfo {
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   margin: 10px;
+  width: 30%;
+  position: absolute;
+  top: 100px;
+  left: 50px;
+  background-color: rgba(31,32,36,.97);
+  color: white;
+  padding: 30px;
+  
 }
-
+.descripcionJuego{
+  padding: 20px 0;
+}
 .contenedorInfoProductos {
   display: flex;
   flex-direction: column;
-  padding: 50px;
+  padding: 20px;
+  
 }
 
 .tituloProductoDetalle {
   margin: auto;
-
   font-size: 30px;
 }
-
+.contenedorCategoria{
+  display: flex;
+  padding: 5px;
+}
+.categoriaProducto{
+  font-size: 8px;
+  border: 1px solid white;
+  width: fit-content;
+  padding: 2px;
+  margin: 0 2px;
+  text-transform: uppercase;
+}
 .descripcionProductoDetalle {
   padding: 20px 0;
 }
 
 .precioProductoDetalle {
-  font-size: 35px;
+  font-size: 30px;
+  margin: 25px 0;
 }
-
+.contenedorBotones{
+  display: flex;
+  
+}
 .contenedorBtn {
-  margin: auto;
-  padding: 20px;
+  
+  
   text-transform: uppercase;
 }
+.contenedorBtnAgregar{
+  width: 200px;
+  padding-left: 20px;
+  
+}
+.btnMasMenos{
+  background-color: grey;
+  padding: 3px 12px;
+  color: white;
+  width: 35px;
+}
+.btnAgregar2{
+  background-color: orangered;
+  width: 200px;
+  color: white;
+}
+.contenedorInfoJuego{
+  text-align: right;
+  position: absolute;
+  top: 450px;
+  background-color: wheat;
+}
+
+
 
 /* FORMULARIO CONTACTO */
 
@@ -319,7 +370,6 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center -70px;
-  
 }
 
 .formularioContainer h1 {
@@ -351,16 +401,15 @@
   padding-top: 30px;
 }
 
-
 /* CART LIST */
-.contenedorBase{
+.contenedorBase {
   margin: 100px;
 }
 
-.bienvenido{
+.bienvenido {
   margin: 0;
 }
-.contenedorCerrarSesion{
+.contenedorCerrarSesion {
   font-size: 14px;
 }
 .formularioContainerCarrito {
@@ -369,13 +418,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-
 }
 
 .formularioContainerCarrito h1 {
   font-size: 20px;
   padding-left: 70px;
-
 }
 
 .formularioRecuadroCarrito {
@@ -384,7 +431,6 @@
   grid-template-columns: 30% 70%;
   width: 300px;
   margin: auto;
-
 }
 
 .formularioRecuadroCarrito label {
@@ -402,9 +448,8 @@
 
 /* CARRITOVACIOLIST */
 
-.ccc{
+.ccc {
   height: 100vh;
-  
 }
 
 /* .carritoVacioContainer {
@@ -418,7 +463,7 @@
   min-height: 80vh;
 } */
 
-.carritoVacioContainer{
+.carritoVacioContainer {
   display: flex;
   padding: 50px;
   width: 100%;
@@ -442,17 +487,15 @@
 
 /* CARRITOLIST */
 
-
-.mainContenedorCarrito{
+.mainContenedorCarrito {
   display: flex;
   padding: 50px;
   width: 100%;
 }
 .carritoContainer {
-  
   display: flex;
   flex-direction: column;
-  
+
   width: 70%;
 }
 .CarritoTitulo {
@@ -461,7 +504,7 @@
   padding-left: 190px;
 }
 
-.vaciarCarritoBtnContainer{
+.vaciarCarritoBtnContainer {
   display: flex;
   justify-content: right;
   padding-right: 190px;
@@ -472,7 +515,7 @@
   margin: 10px auto;
   border: 1px solid grey;
   border-radius: 10px;
-  height: 220px;;
+  height: 220px;
   background-color: #fff;
   display: flex;
   flex-wrap: wrap;
@@ -481,7 +524,7 @@
 .productosImgContainerCarrito {
   text-align: left;
   padding-left: 40px;
-  width: 30%
+  width: 30%;
 }
 
 .infoContainerCarrito {
@@ -503,11 +546,11 @@
   margin: auto;
   font-size: 20px;
 }
-.infoCompraContainer{
+.infoCompraContainer {
   width: 30%;
 }
 
-.infoCompraTotal{
+.infoCompraTotal {
   width: 80%;
   border: 1px solid grey;
   height: fit-content;

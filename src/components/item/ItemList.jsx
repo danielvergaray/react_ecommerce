@@ -27,10 +27,10 @@ const ItemList = ({ productos, verMas, btnMas }) => {
 
                         <div key={producto.id} className={styles.cardsProductos}>
                             <div className={styles.productosImgContainer}>
-                                <img src={producto.image} className={styles.productosImg} />
+                                <img src={producto.imagenSmall} className={styles.productosImg} />
                             </div>
                             <h2 className={styles.cardsTituloProducto}>{producto.name} </h2>
-                            <p className={styles.cardsPrecio}>Precio Online: {producto.price} $</p>
+                            <p className={styles.cardsPrecio}>{producto.price} $</p>
                             <div className={styles.btnProductos}>
                                 <Link to={`/detalles/${producto.id}`}>
                                     <button className="btn btn-primary">Ver más</button>

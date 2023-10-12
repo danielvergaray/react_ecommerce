@@ -4,7 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 import styles from "../../style.module.css";
 import { Button } from "react-bootstrap";
 
-const CartList = ({ cart, eliminarProducto, vaciarCarrito, logOut, userData }) => {
+const CartList = ({ cart, eliminarProducto, vaciarCarrito, logOut, userData, addToCart }) => {
 
   return (
     <div className={styles.contenedorBase}>
@@ -28,18 +28,19 @@ const CartList = ({ cart, eliminarProducto, vaciarCarrito, logOut, userData }) =
             >
               <div className={styles.productosImgContainerCarrito}>
                 <img
-                  src={producto.image}
+                  src={producto.imagenSmall}
                   className={styles.productosImgCarrito}
                 />
               </div>
               <div className={styles.infoContainerCarrito}>
                 <h2 className={styles.cardsTituloProductoCarrito}>
-                  {producto.title}{" "}
+                  {producto.name}{" "}
                 </h2>
                 <p className={styles.cardsPrecioCarrito}>
                   Precio Online: {producto.price} $
                 </p>
                 <p>Cantidad: {producto.quantity}</p>
+                <p>Total: {producto.price*producto.quantity} </p>
                 <div className={styles.btnEliminarCarrito}>
                   <Button onClick={() => eliminarProducto(producto.id, producto.quantity)}>
                     Eliminar
@@ -62,6 +63,7 @@ const CartList = ({ cart, eliminarProducto, vaciarCarrito, logOut, userData }) =
             <Link to="/user">
               <Button>Comprar</Button>
             </Link>
+            <Button onClick={addToCart}>Emitir orden</Button>
           </div>
         </div>
       </div>
