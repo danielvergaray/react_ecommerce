@@ -9,7 +9,7 @@ import { addDoc, collection, getFirestore } from "firebase/firestore";
 const CartListContainer = () => {
   const { cart, removeItem, vaciarCarrito } = useContext(CartContext);
   const { userData, nombreUsuario } = useContext(UserContext);
-
+  
   const [orderId, setOrderId] = useState("");
 
   const newUser = (e) => {
@@ -28,7 +28,7 @@ const CartListContainer = () => {
       total: 1000,
     };
 
-    console.log(purchase)
+    console.log(purchase);
     /* const db = getFirestore();
     const orderCollection = collection(db, "orders");
 
@@ -36,7 +36,7 @@ const CartListContainer = () => {
       .then((res) => setOrderId(res.id))
       .catch((err) => console.log(err)); */
   };
-
+console.log(cart)
   return (
     <div>
       {cart.length > 0 ? (
@@ -46,7 +46,8 @@ const CartListContainer = () => {
           vaciarCarrito={vaciarCarrito}
           newUser={newUser}
           userData={userData}
-          addToCart= {addToCart}
+          addToCart={addToCart}
+          
         />
       ) : (
         <CarritoVacioListContainer userData={userData} />

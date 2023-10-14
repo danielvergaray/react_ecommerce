@@ -14,6 +14,7 @@ const SliderHeroListContainer = () => {
                 title: "Mortal Kombat 1 | 19 de  septiembre",
                 subTitle: "NetherRealm Studios marca el comienzo de una nueva era en esta emblemática franquicia de pelea con un reinicio completo que cambiará el mundo como lo conocemos",
                 interval: 5500,
+                enlace: "/detalles/D2Zdv6p04ECHVwdwLNox",
             },
             {
                 image: fifa24,
@@ -21,12 +22,14 @@ const SliderHeroListContainer = () => {
                 subTitle:
                     "Disfruta de una nueva era del mejor deporte del mundo con una autenticidad increíble en la cancha. EA SPORTS FC™ 24 es el comienzo del futuro del fútbol.",
                 interval: 5500,
+                enlace: "/detalles/fFytYmfb045ZAKDaw851",
             },
             {
                 image: nba24k,
                 title: "NBA 2K24",
                 subTitle: "Disfruta de un juego más reactivo y elementos visuales más pulidos cuando juegues con tus equipos favoritos de la NBA y WNBA en NBA 2K24.",
                 interval: 5500,
+                enlace: "/detalles/wJs3Dnticv3n069bOSdD",
             }
         ]
     }

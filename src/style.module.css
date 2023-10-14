@@ -63,17 +63,9 @@
   width: 216px;
   text-align: center;
   margin: auto;
-  /* display: grid; */
-  /* grid-template-rows: 60% 20% 20%; */
-  /* border: 1px solid white; */
   border-radius: 10px;
-  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
   height: 400px;
-  /* margin: 30px 0; */
-
   background-color: #fff;
-
-  /* box-shadow: 0 2px 4px rgba(219, 75, 75, 0.9); */
 }
 
 .productosImg {
@@ -142,7 +134,7 @@
   z-index: 100;
   color: white;
   background-color: black;
-  padding: 20px 100px;
+  padding: 10px;
 }
 .contenedor {
   display: flex;
@@ -155,13 +147,30 @@
 }
 .navBarLogo{
   width: 60px;
+  
 }
-
+.carritoLoginContainer{
+  display: flex;
+  padding-right: 10px;
+  width: fit-content;
+  
+}
+.carritoContainer{
+  margin: auto;
+  padding: 0 20px;
+}
+.carritoContainer a{
+  color: white;
+  font-size: 20px;
+}
 .lista {
   list-style: none;
   cursor: pointer;
   color: #fff;
   margin: auto 0;
+}
+.lista a{
+  width: fit-content;
 }
 
 .lista:hover {
@@ -178,6 +187,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: max-content;
 }
 .nombreUsuario p {
   margin: auto;
@@ -245,10 +255,13 @@
 .btnMasInformacion {
   display: flex;
   justify-content: left;
+  background-color: #0070cc;
+  color: white;
 }
 
 .btnMasInformacion:hover {
-  background-color: blue;
+  
+  opacity: .6;
 }
 
 .ingresoNombreContainer {
@@ -308,8 +321,9 @@
 }
 
 .tituloProductoDetalle {
-  margin: auto;
+  
   font-size: 30px;
+  
 }
 .contenedorCategoria{
   display: flex;
@@ -336,13 +350,12 @@
   
 }
 .contenedorBtn {
-  
-  
   text-transform: uppercase;
 }
 .contenedorBtnAgregar{
   width: 200px;
   padding-left: 20px;
+  text-align: right;
   
 }
 .btnMasMenos{
@@ -407,9 +420,10 @@
   padding-top: 30px;
 }
 
-/* CART LIST */
+/* USER LIST */
+
 .contenedorBase {
-  margin: 100px;
+  margin: 50px;
 }
 
 .bienvenido {
@@ -419,36 +433,54 @@
   font-size: 14px;
 }
 .formularioContainerCarrito {
-  padding: 100px;
-  text-align: center;
+  padding: 0px;
+  height: 100vh;
+  padding-bottom: 50px;
+  background-image: url("./components/imagenes/fondoLogin.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.formularioIniciarSesion{
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  padding-right: 200px;
+  padding-top: 100px;
+  align-items: flex-end;
+  
 }
-
 .formularioContainerCarrito h1 {
   font-size: 20px;
-  padding-left: 70px;
+  padding-right: 70px;
+  padding-bottom: 40px;
+ 
+}
+input[type="text"], input[type="password"] {
+  padding-left: 30px; /* Ajusta el espacio a la izquierda para que el texto no se solape con el ícono */
 }
 
 .formularioRecuadroCarrito {
-  padding: 20px 0;
+  padding: 10px 0;
   display: grid;
-  grid-template-columns: 30% 70%;
+  grid-template-columns: 10% 90%;
   width: 300px;
-  margin: auto;
+  /* margin: 0 auto; */
+  
 }
 
 .formularioRecuadroCarrito label {
   grid-column: 1;
+  width: fit-content;
+  margin-left: 60px;
 }
 
 .formularioRecuadroCarrito input {
   grid-column: 2;
+  border-radius: 10px;
 }
 
 .CartBtnContainer {
-  padding-left: 70px;
+  padding-right: 80px;
   padding-top: 30px;
 }
 
@@ -457,17 +489,6 @@
 .ccc {
   height: 100vh;
 }
-
-/* .carritoVacioContainer {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  padding: 50px;
-  margin-bottom: 100px;
-  min-height: 80vh;
-} */
 
 .carritoVacioContainer {
   display: flex;
@@ -501,10 +522,9 @@
 .carritoContainer {
   display: flex;
   flex-direction: column;
-
   width: 70%;
 }
-.CarritoTitulo {
+.carritoTitulo {
   font-size: 30px;
   text-align: left;
   padding-left: 190px;
@@ -521,7 +541,7 @@
   margin: 10px auto;
   border: 1px solid grey;
   border-radius: 10px;
-  height: 220px;
+  height: 240px;
   background-color: #fff;
   display: flex;
   flex-wrap: wrap;
@@ -529,7 +549,7 @@
 
 .productosImgContainerCarrito {
   text-align: left;
-  padding-left: 40px;
+  padding-left: 0px;
   width: 30%;
 }
 

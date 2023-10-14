@@ -37,7 +37,7 @@ const filtrado= query(itemCollection, where("category", "==", "Acción"))
   getDocs(itemCollection)
   .then(snapshot =>{
     const allData= snapshot.docs.map(document =>({id: document.id, ...document.data()}))
-    console.log(allData)
+    
     setItems(allData)
   })
 }, [])

@@ -1,111 +1,101 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import styles from "../../style.module.css";
 import { FaShoppingCart } from "react-icons/fa";
+import { ImSearch } from "react-icons/Im";
 import { Link, NavLink } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+import Form from "react-bootstrap/Form";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
 import logo from "../../components/imagenes/logo.png";
+import CartContext from "../context/cartContext/CartContext";
 
 const NavBarList = ({ opciones, logged, userData, cart }) => {
+  
+  const { calculoCuenta } = useContext(CartContext);
+ 
+  
   return (
-
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar  expand="lg" className="bg-body-tertiary">
       <Container fluid className={styles.navbar}>
-        <Navbar.Brand href="#">
+        <Navbar.Brand style={{padding:"0 50px"}}  href="#">
+          <NavLink to="/" >
           <img className={styles.navBarLogo} src={logo} alt="Logo" />
+          </NavLink>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll">
+        <Navbar.Collapse style={{padding:"0 50px"}} id="navbarScroll">
           <Nav
             className="me-auto my-2 my-lg-0"
-            style={{ maxHeight: '100px' }}
+            style={{ maxHeight: "100px", padding: "0px" }}
             navbarScroll
           >
-            {/* <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Link</Nav.Link> */}
+            
             {opciones.map((opcion, index) => (
-              <Nav.Link >
-                <NavLink key={index} className={({ isActive }) => isActive ? `${styles.linkActive}` : `${styles.lista}`} to={opcion}>
-                  {index === 0 ? "Inicio" : opcion}
-
-
+              <Nav.Link>
+                <NavLink
+                  key={index}
+                  className={({ isActive }) =>
+                    isActive ? `${styles.linkActive}` : `${styles.lista}`
+                  }
+                  to={opcion}
+                >
+                  {/* {index === 0 ? "Inicio" : opcion} */}
+                  {opcion}
                 </NavLink>
-
               </Nav.Link>
             ))}
-            {!logged ? (<NavLink className={styles.nombreUsuario} to="/user" >
-              Iniciar sesión
-            </NavLink>) :
-              <NavLink className={styles.nombreUsuario} to="/user" >
-                <p><CgProfile /></p>
-                <p>{userData.user}</p>
-
-              </NavLink>}
-              {cart.length>0 ? (<NavLink to="/carrito"><FaShoppingCart />
-        <li className={styles.lista}></li></NavLink>): <NavLink to="/carritoVacio"><FaShoppingCart />
-        <li className={styles.lista}></li></NavLink>}
-            {/* <NavDropdown title="Link" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Something else here
-              </NavDropdown.Item>
-            </NavDropdown> */}
-            {/* <Nav.Link href="#" >
-              Link
-            </Nav.Link> */}
           </Nav>
+
+          <div className={styles.carritoLoginContainer}>
+            <div>
+              {!logged ? (
+                <NavLink className={styles.nombreUsuario} to="/user">
+                  Iniciar sesión
+                </NavLink>
+              ) : (
+                <NavLink className={styles.nombreUsuario} to="/user">
+                  <p>
+                    <CgProfile />
+                  </p>
+                  <p>{userData.user}</p>
+                </NavLink>
+              )}
+            </div>
+
+            <div className={styles.carritoContainer}>
+              {cart.length > 0 ? (
+                <NavLink to="/carrito">
+                  <FaShoppingCart /* onClick={()=> calculoCuenta()} *//>
+                  <li className={styles.lista}></li>
+                </NavLink>
+              ) : (
+                <NavLink to="/carritoVacio">
+                  <FaShoppingCart />
+                  <li className={styles.lista}></li>
+                </NavLink>
+              )}
+            </div>
+          </div>
+
           <Form className="d-flex">
             <Form.Control
               type="search"
-              placeholder="Search"
+              placeholder="Buscar"
               className="me-2"
               aria-label="Search"
             />
-            <Button variant="outline-success">Search</Button>
+            <Button variant="outline-success"><ImSearch/></Button>
           </Form>
         </Navbar.Collapse>
       </Container>
     </Navbar>
-
-
-
-
   );
 };
 
-{/* <div className={styles.navbar}>
-      <ul className={styles.contenedor}>
-        {opciones.map((opcion, index) => (
-          <NavLink key={index} className={({ isActive }) => isActive ? `${styles.linkActive}` : `${styles.lista}`} to={opcion}>
-            {index === 0 ? "Inicio" : opcion}
-          </NavLink>
-        ))}
-        
-        {!logged ? (<NavLink className={styles.nombreUsuario} to="/user" >
-          Iniciar sesión
-        </NavLink>) : 
-        <NavLink className={styles.nombreUsuario} to="/user" > 
-        <p><CgProfile /></p>
-        <p>{userData.user}</p>
-          
-        </NavLink>}
-
-        {cart.length>0 ? (<NavLink to="/carrito"><FaShoppingCart />
-        <li className={styles.lista}></li></NavLink>): <NavLink to="/carritoVacio"><FaShoppingCart />
-        <li className={styles.lista}></li></NavLink>}
-        
-        
-      </ul>
-    </div> */}
 
 
 export default NavBarList;
