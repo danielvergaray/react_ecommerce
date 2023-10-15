@@ -36,7 +36,7 @@ const CartListContainer = () => {
       .then((res) => setOrderId(res.id))
       .catch((err) => console.log(err)); */
   };
-console.log(cart)
+
   return (
     <div>
       {cart.length > 0 ? (

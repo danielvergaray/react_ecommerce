@@ -65,7 +65,7 @@ const CartList = ({ cart, eliminarProducto, vaciarCarrito, logOut, userData, add
           <h2>Resumen de la orden</h2>
           <div className={styles.infoCompraTotal}>
             <p>Productos: {cart.length}</p>
-            <p>Total: {precioTotal} </p>
+            <p>Total: {precioTotal}  </p>
 
             <Link to="/user">
               <Button>Comprar</Button>

@@ -1,17 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CartContext from "./CartContext";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const CartContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
-
+  const [currentStock, setCurrentStock]=useState(0)
   const [precioTotal, setPrecioTotal] = useState(0);
 
   const calcularPrecioTotal = () => {
     let total = 0;
     cart.forEach((producto) => {
-      total = (producto.price * producto.quantity) + total;
+      total += Math.ceil(producto.price * producto.quantity * 100) / 100;
+      total = parseFloat(total.toFixed(2));
     });
     setPrecioTotal(total);
   };
@@ -21,16 +22,36 @@ const CartContextProvider = ({ children }) => {
     return cart.some(product => product.id === id);
   }
   const addItem = (item, quantity) => {
+    console.log(item)
+    const nuevoStock=currentStock
+    setCurrentStock(nuevoStock)
     
-    if(isInCart(item.id)){
-      let position=cart.findIndex(producto => producto.id===item.id)
-      cart[position].quantity += quantity;
-      setCart([...cart]);
-      calcularPrecioTotal();
-    } else{
-      setCart([...cart, {...item, quantity:quantity}])
-      calcularPrecioTotal();
-    }
+if(quantity<=item.stock){
+  
+
+  if(isInCart(item.id)){
+    let position=cart.findIndex(producto => producto.id===item.id)
+    cart[position].quantity += quantity;
+    setCart([...cart]);
+    const nuevoStock=item.stock-quantity
+    setCurrentStock(nuevoStock)
+    calcularPrecioTotal();
+  } else{
+    setCart([...cart, {...item, quantity:quantity}])
+    const nuevoStock=item.stock-quantity
+    setCurrentStock(nuevoStock)
+    calcularPrecioTotal();
+    console.log(quantity)
+    console.log(item.stock)
+    console.log(nuevoStock)
+    console.log(currentStock)
+  }
+} else{
+  alert("producto escaso")
+}
+
+
+    
     
   }
 
@@ -60,7 +81,9 @@ const CartContextProvider = ({ children }) => {
     setCart([]);  
     calcularPrecioTotal();
   }
-    
+    useEffect(()=>{
+      calcularPrecioTotal();
+    }, [cart])
 
   const values = {
     cart,
