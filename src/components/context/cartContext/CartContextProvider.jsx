@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const CartContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
-  const [currentStock, setCurrentStock]=useState(0)
+  const [currentStock, setCurrentStock] = useState(0)
   const [precioTotal, setPrecioTotal] = useState(0);
 
   const calcularPrecioTotal = () => {
@@ -18,41 +18,41 @@ const CartContextProvider = ({ children }) => {
   };
 
   const isInCart = (id) => {
-    
+
     return cart.some(product => product.id === id);
   }
   const addItem = (item, quantity) => {
     console.log(item)
-    const nuevoStock=currentStock
+    const nuevoStock = currentStock
     setCurrentStock(nuevoStock)
-    
-if(quantity<=item.stock){
-  
 
-  if(isInCart(item.id)){
-    let position=cart.findIndex(producto => producto.id===item.id)
-    cart[position].quantity += quantity;
-    setCart([...cart]);
-    const nuevoStock=item.stock-quantity
-    setCurrentStock(nuevoStock)
-    calcularPrecioTotal();
-  } else{
-    setCart([...cart, {...item, quantity:quantity}])
-    const nuevoStock=item.stock-quantity
-    setCurrentStock(nuevoStock)
-    calcularPrecioTotal();
-    console.log(quantity)
-    console.log(item.stock)
-    console.log(nuevoStock)
-    console.log(currentStock)
-  }
-} else{
-  alert("producto escaso")
-}
+    if (quantity <= item.stock) {
 
 
-    
-    
+      if (isInCart(item.id)) {
+        let position = cart.findIndex(producto => producto.id === item.id)
+        cart[position].quantity += quantity;
+        setCart([...cart]);
+        const nuevoStock = item.stock - quantity
+        setCurrentStock(nuevoStock)
+        calcularPrecioTotal();
+      } else {
+        setCart([...cart, { ...item, quantity: quantity }])
+        const nuevoStock = item.stock - quantity
+        setCurrentStock(nuevoStock)
+        calcularPrecioTotal();
+        console.log(quantity)
+        console.log(item.stock)
+        console.log(nuevoStock)
+        console.log(currentStock)
+      }
+    } else {
+      alert("producto escaso")
+    }
+
+
+
+
   }
 
   const removeItem = (id) => {
@@ -62,7 +62,13 @@ if(quantity<=item.stock){
     calcularPrecioTotal();
   }
 
-  
+  const [categorySelected, setCategorySelected] = useState("")
+
+  const seleccionarCategoria = (categoria) => {
+    setCategorySelected(categoria)
+    console.log(categorySelected)
+  }
+
 
   const mensaje = () => {
     toast.success('Producto agregado exitosamente', {
@@ -77,13 +83,13 @@ if(quantity<=item.stock){
     });
   }
 
-  const vaciarCarrito = () =>{
-    setCart([]);  
+  const vaciarCarrito = () => {
+    setCart([]);
     calcularPrecioTotal();
   }
-    useEffect(()=>{
-      calcularPrecioTotal();
-    }, [cart])
+  useEffect(() => {
+    calcularPrecioTotal();
+  }, [cart])
 
   const values = {
     cart,
@@ -91,11 +97,13 @@ if(quantity<=item.stock){
     mensaje,
     removeItem,
     vaciarCarrito,
-    precioTotal
-    
+    precioTotal,
+    seleccionarCategoria,
+    categorySelected
+
   };
 
-  
+
   return <CartContext.Provider value={values}>{children}</CartContext.Provider>;
 };
 

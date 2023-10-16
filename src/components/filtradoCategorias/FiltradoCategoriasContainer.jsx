@@ -13,42 +13,6 @@ const FiltradoCategoriasContainer = () => {
     ); */
 
 
-    const [products, setProducts]= useState([])
-
-    useEffect(() =>{
-        const baseDatos= getFirestore();
-        const itemCollection = collection(baseDatos, "productos")
-      
-      
-        
-      const filtrado= query(itemCollection, where("category", "==", "Acción"))
-      /* getDocs(filtrado) */
-      
-        getDocs(filtrado)
-
-        .then(snapshot =>{
-          const allData= snapshot.docs.map(document =>({id: document.id, ...document.data()}))
-          
-          setProducts(allData)
-        })
-      }, [])
-
-    const categoriaFiltrada = "jewelery"
-    useEffect(() => {
-    
-        
-    
-        const elementosFiltrados = products.filter((producto) => (
-    
-            producto.category === categoriaFiltrada
-    
-        ))
-        setCategorias(elementosFiltrados)
-
-        
-    }, [products])
-    
-   console.log(categorias)
 
 
 

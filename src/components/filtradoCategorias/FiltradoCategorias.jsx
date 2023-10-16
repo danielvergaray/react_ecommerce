@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 
 const FiltradoCategorias = ({ categorias }) => {
 
-const [, products] = useApiData(
+/* const [, products] = useApiData(
   "https://fakestoreapi.com/products"
 ); 
-
+ */
   return (
 
     <div>
