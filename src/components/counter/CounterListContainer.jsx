@@ -2,17 +2,29 @@ import React, { useState } from 'react'
 import CounterList from './CounterList'
 import ItemDetailContainer from '../details/ItemDetailContainer'
 
-const CounterListContainer = ({onAdd, mensaje}) => {
+const CounterListContainer = ({onAdd, mensaje, item}) => {
 
 const [count, setCount]= useState(1)
 
-const increment= ()=>{
+/* const increment= ()=>{
     setCount(count+1)
 }
 const decrement= ()=>{
     if(count>1){
         setCount(count-1)
     }
+} */
+
+const increment= ()=>{
+  /* if(count<item.stock){ */
+    setCount(count+1)
+ /*  } */
+  
+}
+const decrement= ()=>{
+  if(count>1){
+      setCount(count-1)
+  }
 }
 
   return (

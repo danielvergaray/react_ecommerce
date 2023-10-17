@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const CartContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
-  const [currentStock, setCurrentStock] = useState(0)
+ /*  const [currentStock, setCurrentStock] = useState(0) */
   const [precioTotal, setPrecioTotal] = useState(0);
 
   const calcularPrecioTotal = () => {
@@ -22,37 +22,36 @@ const CartContextProvider = ({ children }) => {
     return cart.some(product => product.id === id);
   }
   const addItem = (item, quantity) => {
-    console.log(item)
-    const nuevoStock = currentStock
-    setCurrentStock(nuevoStock)
+    /* const nuevoStock = currentStock */
+    /* setCurrentStock(nuevoStock) */
+
+    let currentStock;
 
     if (quantity <= item.stock) {
-
 
       if (isInCart(item.id)) {
         let position = cart.findIndex(producto => producto.id === item.id)
         cart[position].quantity += quantity;
         setCart([...cart]);
-        const nuevoStock = item.stock - quantity
-        setCurrentStock(nuevoStock)
+        /* const nuevoStock = item.stock - quantity */
+        currentStock= item.stock - quantity
+        /* setCurrentStock(nuevoStock) */
         calcularPrecioTotal();
+
       } else {
         setCart([...cart, { ...item, quantity: quantity }])
-        const nuevoStock = item.stock - quantity
-        setCurrentStock(nuevoStock)
+        /* const nuevoStock = item.stock - quantity */
+        currentStock= item.stock - quantity
+        /* setCurrentStock(nuevoStock) */
         calcularPrecioTotal();
-        console.log(quantity)
+        /* console.log(quantity)
         console.log(item.stock)
-        console.log(nuevoStock)
-        console.log(currentStock)
+        console.log(nuevoStock)*/
+        console.log(currentStock) 
       }
     } else {
       alert("producto escaso")
     }
-
-
-
-
   }
 
   const removeItem = (id) => {
@@ -62,12 +61,12 @@ const CartContextProvider = ({ children }) => {
     calcularPrecioTotal();
   }
 
-  const [categorySelected, setCategorySelected] = useState("")
+  /* const [categorySelected, setCategorySelected] = useState("")
 
   const seleccionarCategoria = (categoria) => {
     setCategorySelected(categoria)
     console.log(categorySelected)
-  }
+  } */
 
 
   const mensaje = () => {
@@ -98,8 +97,8 @@ const CartContextProvider = ({ children }) => {
     removeItem,
     vaciarCarrito,
     precioTotal,
-    seleccionarCategoria,
-    categorySelected
+    /* seleccionarCategoria,
+    categorySelected */
 
   };
 

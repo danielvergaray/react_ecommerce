@@ -18,7 +18,6 @@ const ItemListContainer = () => {
 
   const { id } = useParams()
 
-
 /*   const URL =
     id && id !== "TODOS"
       ? `https://fakestoreapi.com/products/category/${id}`
@@ -29,28 +28,64 @@ const ItemListContainer = () => {
 
   const [loading, products, error, items] = useApiData(URL); */
 
-useEffect(() =>{
-  const baseDatos= getFirestore();
-  const itemCollection = collection(baseDatos, "productos")
+  useEffect(() => {
+    const db= getFirestore()
+    const coleccionProductos =id ? query(collection(db, "productos"), where("category", "==", id)):collection(db, "productos")
+   getDocs(coleccionProductos)
+   .then((res)=> {
+       const list = res.docs.map((product)=>{
+           return{
+               id:product.id,
+               ...product.data()
+           }
+       })
+       setItems(list)
+   })
+   .catch((error)=> console.log(error))
+}, [id])
 
 
-const filtrado= query(itemCollection, where("category", "==", "Pelea"))
-/* getDocs(filtrado) */
+/* useEffect(()=>{
+  const db= getFirestore()
+  const itemCollection = collection(db, "productos");
+  let queryCategory;
 
-  getDocs(itemCollection)
-  .then(snapshot =>{
-    const allData= snapshot.docs.map(document =>({id: document.id, ...document.data()}))
-    
-    setItems(allData)
-  })
-}, [])
+  if (categorySelected === "Arcade") {
+    queryCategory = "Arcade";
+  } else if (categorySelected === "Deportes") {
+    queryCategory = "Deportes";
+  } else if (categorySelected === "Acción") {
+    queryCategory = "Acción";
+  } else if (categorySelected === "Acción, Aventura") {
+    queryCategory = "Acción, Aventura";
+  } else if (categorySelected === "Pelea") {
+    queryCategory = "Pelea";
+  } else if (categorySelected === "Juegos De Rol") {
+    queryCategory = "Juegos De Rol";
+  } else if (categorySelected === "Terror") {
+    queryCategory = "Terror";
+  } else if (categorySelected === "Fantasía") {
+    queryCategory = "Fantasía";
+  } else {
+    queryCategory = "PELEA";
+  }
+  
+
+  const q = query(itemCollection, where("category", "==", queryCategory));
+  getDocs(q)
+  .then((snapshot) => {
+    const allData = snapshot.docs.map((document) => ({
+      id: document.id,
+      ...document.data(),
+    }));
+    setItems(allData);
+  });
+
+}, [categorySelected]) */
 
 
 
-
-
-
-if(categorySelected==="Arcade"){
+/* if(categorySelected==="Arcade"){
   useEffect(()=>{
     const db= getFirestore()
   
@@ -192,7 +227,7 @@ else if (categorySelected==="Fantasía"){
   
   
   const filtrado= query(itemCollection, where("category", "==", "Pelea"))
-  /* getDocs(filtrado) */
+  
   
     getDocs(itemCollection)
     .then(snapshot =>{
@@ -201,7 +236,7 @@ else if (categorySelected==="Fantasía"){
       setItems(allData)
     })
   })
-}
+} */
 
 
 

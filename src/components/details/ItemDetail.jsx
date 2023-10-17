@@ -22,7 +22,7 @@ const ItemDetail = ({ item, onAdd, mensaje, count }) => {
             <p className={styles.precioProductoDetalle}>US$ {item.price}</p>
             <p className={styles.descripcionJuego}>{item.description}</p>
             <div className={styles.contenedorBtn}>
-              <CounterListContainer onAdd={onAdd} mensaje={mensaje} />
+              <CounterListContainer item= {item} onAdd={onAdd} mensaje={mensaje} />
               <ToastContainer />{" "}
             </div>
           </div>

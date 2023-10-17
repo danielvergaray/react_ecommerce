@@ -21,11 +21,11 @@ const NavBarList = ({ opciones, logged, userData, cart }) => {
   return (
     <Navbar  expand="lg" className="bg-body-tertiary">
       <Container fluid className={styles.navbar}>
-        <Navbar.Brand style={{padding:"0 50px"}}  href="#">
+        <div style={{padding:"0 50px"}}  href="#">
           <NavLink to="/" >
           <img className={styles.navBarLogo} src={logo} alt="Logo" />
           </NavLink>
-        </Navbar.Brand>
+        </div>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse style={{padding:"0 50px"}} id="navbarScroll">
           <Nav
@@ -35,9 +35,9 @@ const NavBarList = ({ opciones, logged, userData, cart }) => {
           >
             
             {opciones.map((opcion, index) => (
-              <Nav.Link>
+              <div key={index}>
                 <NavLink
-                  key={index}
+                  
                   className={({ isActive }) =>
                     isActive ? `${styles.linkActive}` : `${styles.lista}`
                   }
@@ -46,7 +46,7 @@ const NavBarList = ({ opciones, logged, userData, cart }) => {
                   {/* {index === 0 ? "Inicio" : opcion} */}
                   {opcion}
                 </NavLink>
-              </Nav.Link>
+              </div>
             ))}
           </Nav>
 

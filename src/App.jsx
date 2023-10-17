@@ -20,6 +20,7 @@ import Carrito from "./components/pages/Carrito";
 import IniciarSesion from "./components/pages/IniciarSesion";
 import CarritoVacioListContainer from "./components/carritoVacio/CarritoVacioListContainer";
 import CarritoVacio from "./components/pages/CarritoVacio";
+import Noticias from "./components/pages/Noticias";
 
 const App = () => {
   return (
@@ -41,7 +42,7 @@ const App = () => {
           <Route path="/carritoVacio" element={<CarritoVacio />} />
           <Route path="/user" element={<User />} />
           <Route path="/Iniciar sesión" element={<IniciarSesion />} />
-          
+          <Route path="/Noticias" element={<Noticias />} />
         </Routes>
 
         {/* <SliderHeroListContainer /> */}

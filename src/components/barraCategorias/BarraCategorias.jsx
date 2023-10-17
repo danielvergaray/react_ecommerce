@@ -1,6 +1,6 @@
 import {React, useContext} from 'react'
 import styles from "../../style.module.css";
-import BarraCategoriasContainer from './barraCategoriasContainer';
+/* import BarraCategoriasContainer from './barraCategoriasContainer'; */
 import { NavLink } from 'react-router-dom';
 import CartContext from '../context/cartContext/CartContext';
 

@@ -4,6 +4,7 @@ import useApiData from "../customHooks/useApiData";
 import CartContext from "../context/cartContext/CartContext";
 import { doc, getDoc, getFirestore, snapshotEqual } from "firebase/firestore"
 
+import CounterListContainer from "../counter/CounterListContainer";
 
 const ItemDetailContainer = ({ id, count }) => {
   /* const [, item] = useApiData(`https://fakestoreapi.com/products/${id}`); */
@@ -41,7 +42,17 @@ const ItemDetailContainer = ({ id, count }) => {
   }
 
 
-  return <>{item !== null && <ItemDetail item={item} onAdd={onAdd} mensaje={mensaje} count={count} removeProduct={removeProduct} />}</>;
+  /* return <>{item !== null && <ItemDetail item={item} onAdd={onAdd} mensaje={mensaje} count={count} removeProduct={removeProduct} />}</>;
+  
+*/
+
+return (
+  <>
+    {item !== null && <ItemDetail item={item} onAdd={onAdd} mensaje={mensaje} count={count} removeProduct={removeProduct} />}
+    <CounterListContainer item={item} />
+  </>
+);
+  
 };
 
 export default ItemDetailContainer;
