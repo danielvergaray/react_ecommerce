@@ -29,7 +29,6 @@ const BarraCategoriasContainer = () => {
             })
     }, [])
 
-
     useEffect(() => {
         if (products) {
             const categorias = [];
@@ -46,17 +45,9 @@ const BarraCategoriasContainer = () => {
         }
     }, [products]);
 
-
-    
-
-
     return (
        
-            <BarraCategorias categorias={categoriasUnicas}
-                /* seleccionarCategoria={seleccionarCategoria} */
-            />
-
-            
+            <BarraCategorias categorias={categoriasUnicas} />    
     )
 }
 
