@@ -6,7 +6,7 @@ import { collection, getDocs, getFirestore, snapshotEqual, query, where } from "
 import ItemListContainer from '../item/ItemListContainer';
 
 const BarraCategoriasContainer = () => {
-    const [categoriasUnicas, setCategoriasUnicas] = useState(["TODOS"]);
+    const [categoriasUnicas, setCategoriasUnicas] = useState([/* "TODOS" */]);
     /* const [, products] = useApiData("https://fakestoreapi.com/products"); */
 
     const [products, setProducts] = useState([])
@@ -18,7 +18,7 @@ const BarraCategoriasContainer = () => {
         const itemCollection = collection(baseDatos, "productos")
 
 
-        const filtrado = query(itemCollection, where("category", "==", "Acción"))
+       /*  const filtrado = query(itemCollection, where("category", "==", "Acción")) */
         /* getDocs(filtrado) */
 
         getDocs(itemCollection)
@@ -42,7 +42,7 @@ const BarraCategoriasContainer = () => {
             });
 
             // Actualizar el estado "categoriasUnicas" con las categorías únicas
-            setCategoriasUnicas(["TODOS", ...categorias]);
+            setCategoriasUnicas([/* "TODOS" */, ...categorias]);
         }
     }, [products]);
 

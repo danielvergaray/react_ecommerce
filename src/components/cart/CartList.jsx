@@ -4,33 +4,55 @@ import { Link, NavLink } from "react-router-dom";
 import styles from "../../style.module.css";
 import { Button } from "react-bootstrap";
 import CartContext from "../context/cartContext/CartContext";
+import UserContext from "../context/UserContext";
 
-const CartList = ({ cart, eliminarProducto, vaciarCarrito, logOut, userData, addToCart }) => {
+const CartList = ({
+  cart,
+  eliminarProducto,
+  vaciarCarrito,
+  logOut,
+  userData,
+  compraRealizada
+  
+}) => {
+  const { precioTotal, productosTotales } = useContext(CartContext);
+  const { logActive, logged } = useContext(UserContext);
 
-  const { precioTotal } = useContext(CartContext);
-
-
-
+  
   return (
     <div className={styles.contenedorBase}>
       <p className={styles.bienvenido}>Bienvenido {userData.user} </p>
-      <NavLink to="/user" className={styles.contenedorCerrarSesion} onClick={() => { vaciarCarrito(), logOut() }}>
-        <p>Cerrar sesión</p>
-      </NavLink>
+      {!logged ? (
+        <NavLink
+          to="/user"
+          className={
+            styles.contenedorCerrarSesion
+          } /* onClick={() => { vaciarCarrito(), logOut() }} */
+        >
+          <p>Iniciar sesión</p>
+        </NavLink>
+      ) : (
+        <NavLink
+          to="/user"
+          className={styles.contenedorCerrarSesion}
+          onClick={() => {
+            vaciarCarrito(), logOut();
+          }}
+        >
+          <p>Cerrar sesión</p>
+        </NavLink>
+      )}
       <div className={styles.mainContenedorCarrito}>
         <div className={styles.carritoContainer}>
           <h1 className={styles.carritoTitulo}>
-            Carrito ({cart.length} productos)
+            Carrito ({productosTotales} productos)
           </h1>
           <div className={styles.vaciarCarritoBtnContainer}>
             <Button onClick={vaciarCarrito}>Vaciar carrito</Button>
           </div>
 
           {cart.map((producto) => (
-            <div
-              key={producto.id}
-              className={styles.cardsProductosCarrito}
-            >
+            <div key={producto.id} className={styles.cardsProductosCarrito}>
               <div className={styles.productosImgContainerCarrito}>
                 <img
                   src={producto.imageSmall}
@@ -43,20 +65,25 @@ const CartList = ({ cart, eliminarProducto, vaciarCarrito, logOut, userData, add
                 </h2>
                 <p className={styles.cardsPrecioCarrito}>
                   Precio Online: {producto.price} $
-                  
                 </p>
                 <p>Cantidad: {producto.quantity} und</p>
-                <p>Total: {Math.ceil(producto.price * producto.quantity * 100) / 100} $ </p>
+                <p>
+                  Total:{" "}
+                  {Math.ceil(producto.price * producto.quantity * 100) / 100} ${" "}
+                </p>
                 <div className={styles.btnEliminarCarrito}>
-                  <Button onClick={() => eliminarProducto(producto.id, producto.quantity)}>
+                  <Button
+                    onClick={() =>
+                      eliminarProducto(producto.id, producto.quantity)
+                    }
+                  >
                     Eliminar
                   </Button>
                 </div>
               </div>
             </div>
-            
           ))}
-          <NavLink to="/productos" style={{margin:"auto"}}>
+          <NavLink to="/productos" style={{ margin: "auto" }}>
             <Button>Regresar</Button>
           </NavLink>
         </div>
@@ -64,13 +91,15 @@ const CartList = ({ cart, eliminarProducto, vaciarCarrito, logOut, userData, add
         <div className={styles.infoCompraContainer}>
           <h2>Resumen de la orden</h2>
           <div className={styles.infoCompraTotal}>
-            <p>Productos: {cart.length}</p>
-            <p>Total: {precioTotal}  </p>
+            <p>Productos: {productosTotales} Unidades </p>
+            <p>Total: {precioTotal} $ </p>
 
-            <Link to="/user">
+            {logged ? <Link to="/carrito" >
+              <Button onClick={()=>compraRealizada()}>Comprar</Button>
+            </Link>: <Link to="/user" >
               <Button>Comprar</Button>
-            </Link>
-            <Button onClick={addToCart}>Emitir orden</Button>
+            </Link>}
+            
           </div>
         </div>
       </div>

@@ -49,7 +49,7 @@ const ItemDetailContainer = ({ id, count }) => {
 return (
   <>
     {item !== null && <ItemDetail item={item} onAdd={onAdd} mensaje={mensaje} count={count} removeProduct={removeProduct} />}
-    <CounterListContainer item={item} />
+   {/*  <CounterListContainer item={item}  /> */}
   </>
 );
   

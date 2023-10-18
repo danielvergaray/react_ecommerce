@@ -39,13 +39,7 @@ const ItemList = ({ productos, verMas, btnMas }) => {
                                 <Card.Text>{producto.price} $</Card.Text>
 
                             </Card.Body>
-                            {/* <h2 className={styles.cardsTituloProducto}>{producto.name} </h2> <br /> */}
-                            {/* <p className={styles.cardsPrecio}>{producto.price} $</p> */}
-                            {/* <div className={styles.btnProductos}>
-                                <Link to={`/detalles/${producto.id}`}>
-                                    <button className="btn btn-primary">Ver más</button>
-                                </Link>
-                            </div> */}
+                            
                         </Card>
 
 
@@ -56,9 +50,9 @@ const ItemList = ({ productos, verMas, btnMas }) => {
                     ))}
                 </div>
 
-                <div className={styles.btnVerMas}>
+                {/* <div className={styles.btnVerMas}>
                     {btnMas && <button className='btn btn-primary' onClick={verMas}>Ver más productos</button>}
-                </div>
+                </div> */}
             </div>
 
 

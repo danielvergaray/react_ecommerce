@@ -31,8 +31,21 @@ const UserList = ({ getUserData, validation, inicioSesion, userData }) => {
           <input 
             type="text"
             name="user"
-            id="email"
+            id="user"
             placeholder="  Usuario"
+            onChange={getUserData}
+            required
+          />
+        </div>
+        <div className={styles.formularioRecuadroCarrito}>
+          
+          <label htmlFor="text"><BiUser/></label>
+          
+          <input 
+            type="email"
+            name="email"
+            id="email"
+            placeholder="  Email"
             onChange={getUserData}
             required
           />

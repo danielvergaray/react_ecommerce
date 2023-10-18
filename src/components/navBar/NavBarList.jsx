@@ -14,30 +14,26 @@ import logo from "../../components/imagenes/logo.png";
 import CartContext from "../context/cartContext/CartContext";
 
 const NavBarList = ({ opciones, logged, userData, cart }) => {
-  
-  const { calculoCuenta } = useContext(CartContext);
- 
-  
+  const { calculoCuenta, productosTotales } = useContext(CartContext);
+
   return (
-    <Navbar  expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid className={styles.navbar}>
-        <div style={{padding:"0 50px"}}  href="#">
-          <NavLink to="/" >
-          <img className={styles.navBarLogo} src={logo} alt="Logo" />
+        <div style={{ padding: "0 50px" }} href="#">
+          <NavLink to="/">
+            <img className={styles.navBarLogo} src={logo} alt="Logo" />
           </NavLink>
         </div>
         <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse style={{padding:"0 50px"}} id="navbarScroll">
+        <Navbar.Collapse style={{ padding: "0 50px" }} id="navbarScroll">
           <Nav
             className="me-auto my-2 my-lg-0"
             style={{ maxHeight: "100px", padding: "0px" }}
             navbarScroll
           >
-            
             {opciones.map((opcion, index) => (
               <div key={index}>
                 <NavLink
-                  
                   className={({ isActive }) =>
                     isActive ? `${styles.linkActive}` : `${styles.lista}`
                   }
@@ -69,12 +65,23 @@ const NavBarList = ({ opciones, logged, userData, cart }) => {
             <div className={styles.carritoContainer}>
               {cart.length > 0 ? (
                 <NavLink to="/carrito">
-                  <FaShoppingCart /* onClick={()=> calculoCuenta()} *//>
+                  <div className={styles.cantidadProductosCarrito}>
+                    <FaShoppingCart />
+                    <div className={styles.numeroDeProductosEnCarrito}>
+                      <span>{productosTotales}</span>
+                    </div>
+                  </div>
+
                   <li className={styles.lista}></li>
                 </NavLink>
               ) : (
                 <NavLink to="/carritoVacio">
-                  <FaShoppingCart />
+                  <div className={styles.cantidadProductosCarrito}>
+                    <FaShoppingCart />
+                    <div className={styles.numeroDeProductosEnCarrito}>
+                      <span>{productosTotales}</span>
+                    </div>
+                  </div>
                   <li className={styles.lista}></li>
                 </NavLink>
               )}
@@ -88,14 +95,14 @@ const NavBarList = ({ opciones, logged, userData, cart }) => {
               className="me-2"
               aria-label="Search"
             />
-            <Button variant="outline-success"><ImSearch/></Button>
+            <Button variant="outline-success">
+              <ImSearch />
+            </Button>
           </Form>
         </Navbar.Collapse>
       </Container>
     </Navbar>
   );
 };
-
-
 
 export default NavBarList;

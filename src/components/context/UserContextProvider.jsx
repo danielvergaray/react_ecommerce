@@ -54,12 +54,16 @@ const UserContextProvider = ({ children }) => {
 
   };
 
+  const logActive=()=>{
+    setLogged(!logged)
+  }
   const values = {
     userData,
     inicioSesion,
     nombreUsuario,
     logged,
-    logOut
+    logOut,
+    logActive
   };
 
   return <UserContext.Provider value={values}>{children}</UserContext.Provider>;

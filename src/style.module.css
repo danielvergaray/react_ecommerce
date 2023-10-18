@@ -158,10 +158,32 @@
 .carritoContainer{
   margin: auto;
   padding: 0 20px;
+  
 }
 .carritoContainer a{
   color: white;
   font-size: 20px;
+  width: 50px;
+}
+.cantidadProductosCarrito{
+  display: flex;
+}
+.numeroDeProductosEnCarrito span{
+  
+  font-size: 12px;
+  
+}
+.numeroDeProductosEnCarrito{
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  position: relative;
+  top: 10px;
+  display: flex;
+  left: -5px;
+  justify-content: center;
+  align-items: center;
 }
 .lista {
   list-style: none;
@@ -177,6 +199,7 @@
 .lista:hover {
   color: blue;
 }
+
 
 .nombreUsuario {
   border: 1px solid blue;
@@ -198,7 +221,11 @@
   color: red;
   text-transform: capitalize;
   margin: auto 0;
+  padding: 10px 0;
+  width: fit-content;
 }
+
+
 
 /* FOOTER */
 
@@ -542,7 +569,7 @@ input[type="text"], input[type="password"] {
   margin: 10px auto;
   border: 1px solid grey;
   border-radius: 10px;
-  height: 240px;
+  height: max-content;
   background-color: #fff;
   display: flex;
   flex-wrap: wrap;

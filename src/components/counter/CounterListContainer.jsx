@@ -16,15 +16,18 @@ const decrement= ()=>{
 } */
 
 const increment= ()=>{
-  /* if(count<item.stock){ */
+  if(count<item.stock){
     setCount(count+1)
- /*  } */
+  }
   
 }
 const decrement= ()=>{
   if(count>1){
       setCount(count-1)
   }
+}
+const reiniciarContador=()=>{
+  setCount(1)
 }
 
   return (
@@ -35,6 +38,7 @@ const decrement= ()=>{
         count= {count}
         onAdd= {onAdd}
         mensaje= {mensaje}
+        reiniciarContador={reiniciarContador}
          />
 
         {/* <ItemDetailContainer
