@@ -76,7 +76,7 @@ const Home = () => {
       category: "Juegos De Rol",
       device: "PS4/PS5",
       description: "EL NUEVO RPG DE ACCIÓN DE FANTASÍA. Levántate, tiznado, y déjate guiar por la gracia para esgrimir el poder del Anillo de Elden y convertirte en un Señor de Elden en las Tierras Intermedias"
-      
+
     },
     {
       name: "Grand Theft Auto V: Edición Premium",
@@ -226,7 +226,7 @@ const Home = () => {
       category: "Deportes",
       device: "PS4/PS5",
       description: "Presentamos la tecnología SAPIEN en Madden NFL 24 para PS5™. La tecnología SAPIEN ofrece un avance en el realismo de los jugadores de la NFL, con más definición corporal y variedad de físicos que resultan en movimientos realistas"
-      
+
 
     },
     {
@@ -312,7 +312,36 @@ const Home = () => {
 
   ]
 
-  const addData = () => {
+  const categoriasEnFirebase = [
+    {
+      category: "Arcade"
+    },
+    {
+      category: "Deportes"
+    },
+    {
+      category: "Acción, Aventura"
+    },
+    {
+      category: "Pelea"
+    },
+    {
+      category: "Juegos De Rol"
+    },
+    {
+      category: "Terror"
+    },
+    {
+      category: "Acción"
+    },
+    {
+      category: "Fantasía"
+    },
+
+  ]
+
+
+  /* const addDataToFirebase = () => {
     const db = getFirestore();
 
     const collectionRef = collection(db, "productos")
@@ -322,13 +351,28 @@ const Home = () => {
         .then(res => console.log(res.id))
         .catch(err => console.log(err))
     }
-  }
+  } */ /* ASI SE HA CREADO LOS PRODUCTOS EN LA BASE DE DATOS */
 
-  /* addData() */
+
+  /* const addCategoriasToFirebase = () => {
+    const db = getFirestore();
+
+    const collectionRef = collection(db, "categorias")
+
+    for (let item of categoriasEnFirebase) {
+      addDoc(collectionRef, item)
+        .then(res => console.log(res.id))
+        .catch(err => console.log(err))
+    }
+  } */
+
+
+  /* addDataToFirebase() */ /* Se mantiene asi para que no se vuelva a enviar a la base de datos */
   return (
     <div>
       <SliderHeroListContainer />
-      {/* <Button onClick={()=> addData()}>agg productos a firebase</Button> */}
+      {/* <Button onClick={()=> addDataToFirebase()}>agg productos a firebase</Button> */}
+      {/* {<Button onClick={() => addCategoriasToFirebase()}>agg productos a firebase</Button>} */}
     </div>
   )
 }

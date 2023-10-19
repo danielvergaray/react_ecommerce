@@ -1,9 +1,16 @@
 import React from 'react'
+import ListGroup from 'react-bootstrap/ListGroup';
 
-const CheckoutList = ({ comprobante, emitirRecibo, compraRealizada }) => {
+const CheckoutList = ({ 
+  comprobante, 
+  emitirRecibo, 
+  compraRealizada, 
+  orderId 
+
+}) => {
 
   console.log(comprobante)
-
+  console.log(compraRealizada)
   return (
 
     <div>
@@ -17,14 +24,19 @@ const CheckoutList = ({ comprobante, emitirRecibo, compraRealizada }) => {
       {compraRealizada &&
         <div>
           <h1>Recibo de compra desde CheckoutList</h1>
-          {comprobante.map((el) => (
-            <div>
-              <p>{el.id} </p>
-            </div>
+          <p>order id = {orderId} </p>
+          {comprobante.items.map((producto) => (
+            <ListGroup>
+              <ListGroup.Item>{producto.name} </ListGroup.Item>
+
+            </ListGroup>
           ))}
 
+        </div>
 
-        </div>}
+
+
+      }
     </div>
   )
 }

@@ -6,9 +6,9 @@ import { useParams } from "react-router-dom";
 import { collection, getDocs, getFirestore, snapshotEqual, query, where } from "firebase/firestore"
 import CartContext from '../context/cartContext/CartContext';
 
-const ItemListContainer = () => {
+const ItemListContainer = ({id}) => {
 
-  const { categorySelected } = useContext(CartContext)
+  const { categorySelected, categories } = useContext(CartContext)
 
   const [items, setItems] = useState([])
 
@@ -16,8 +16,8 @@ const ItemListContainer = () => {
 
   const [btnMas, setBtnMas] = useState(true);
 
-  const { id } = useParams()
-
+  /* const { id } = useParams() */
+console.log(id)
 /*   const URL =
     id && id !== "TODOS"
       ? `https://fakestoreapi.com/products/category/${id}`

@@ -46,6 +46,7 @@ const App = () => {
           <Route path="/Iniciar sesión" element={<IniciarSesion />} />
           <Route path="/Noticias" element={<Noticias />} />
           <Route path="/Checkout/:orderId" element={<Checkout />} />
+          {/* <Route path="/Checkout" element={<Checkout />} /> */}
         </Routes>
 
         {/* <SliderHeroListContainer /> */}

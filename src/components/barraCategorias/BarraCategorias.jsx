@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import CartContext from "../context/cartContext/CartContext";
 
 const BarraCategorias = ({ categorias }) => {
+  console.log(categorias)
   const { seleccionarCategoria } = useContext(CartContext);
   return (
     <div>
@@ -27,9 +28,9 @@ const BarraCategorias = ({ categorias }) => {
                 ? `${styles.linkActive}`
                 : `${styles.barraCategoriasItem}`
             }
-            key={categoria}
+            key={categoria.category}
           >
-            {categoria}
+            {categoria.category}
           </NavLink>
         ))}
       </ul>

@@ -7,7 +7,9 @@ import withReactContent from "sweetalert2-react-content";
 import { Button } from "react-bootstrap";
 import UserContext from "../UserContext";
 import { useContext } from "react";
-import { collection, addDoc, getFirestore, snapshotEqual, doc, getDoc } from "firebase/firestore"
+import { collection, addDoc, getFirestore, snapshotEqual, doc, getDocs } from "firebase/firestore"
+import { useNavigate } from "react-router-dom";
+
 
 
 const CartContextProvider = ({ children }) => {
@@ -21,6 +23,7 @@ const CartContextProvider = ({ children }) => {
   const [precioTotal, setPrecioTotal] = useState(0);
   const [productosTotales, setProductosTotales] = useState(0);
 
+
   const calcularPrecioTotal = () => {
     let total = 0;
     let totalProductos = 0;
@@ -32,6 +35,8 @@ const CartContextProvider = ({ children }) => {
     setPrecioTotal(total);
     setProductosTotales(totalProductos);
   };
+
+  const navigate = useNavigate()
 
   const addToCart = () => {
     const purchase = {
@@ -45,12 +50,12 @@ const CartContextProvider = ({ children }) => {
       total: precioTotal,
     };
 
-    console.log(purchase);
+    
     const db = getFirestore();
     const orderCollection = collection(db, "orders");
 
     addDoc(orderCollection, purchase)
-      .then((res) => setOrderId(res.id))
+      .then((res) => navigate('/Checkout/'+ res.id)) /* Redirijo hacia checkout */
       .catch((err) => console.log(err));
   };
 
@@ -58,9 +63,7 @@ const CartContextProvider = ({ children }) => {
     return cart.some((product) => product.id === id);
   };
   const addItem = (item, quantity) => {
-    /* const nuevoStock = currentStock */
-    /* setCurrentStock(nuevoStock) */
-
+    
     let currentStock;
 
     if (quantity <= item.stock) {
@@ -68,20 +71,16 @@ const CartContextProvider = ({ children }) => {
         let position = cart.findIndex((producto) => producto.id === item.id);
         cart[position].quantity += quantity;
         setCart([...cart]);
-        /* const nuevoStock = item.stock - quantity */
+       
         currentStock = item.stock - quantity;
-        /* setCurrentStock(nuevoStock) */
+       
         calcularPrecioTotal();
       } else {
         setCart([...cart, { ...item, quantity: quantity }]);
-        /* const nuevoStock = item.stock - quantity */
+        
         currentStock = item.stock - quantity;
-        /* setCurrentStock(nuevoStock) */
+      
         calcularPrecioTotal();
-        /* console.log(quantity)
-        console.log(item.stock)
-        console.log(nuevoStock)*/
-        /* console.log(currentStock)  */
       }
     } else {
       alert("producto escaso");
@@ -116,84 +115,27 @@ const CartContextProvider = ({ children }) => {
     calcularPrecioTotal();
   }, [cart]);
 
-  const MySwal = withReactContent(Swal);
+  /* const MySwal = withReactContent(Swal); */
+  const [categories, setCategories]= useState([])
 
-  /* const compraRealizada = () => {
-    const buttonHtml = `<button id="custom-button" class="btn btn-primary">Emitir recibo</button>`;
-
-    MySwal.fire({
-      title: <strong>Compra realizada exitosamente</strong>,
-      html: `
-      <i>Gracias por su compra</i><br><br> ${buttonHtml}`,
-      icon: "success",
-      showCloseButton: true,
-      allowOutsideClick: false,
-      showConfirmButton: false,
-      
-    });
-
-    document.getElementById("custom-button").addEventListener("click", () => {
-      addToCart();
-      MySwal.close();
-      mostrarRecibo();
-    });
-    setCart([]);
-  }; */
-
- /*  const addToCart = () => {
-    const purchase = {
-      buyer: {
-        id: 1,
-        name: userData.user,
-        
-      },
-      items: cart,
-      date: new Date(),
-      total: precioTotal,
-    };
-
-    console.log(purchase);
-    const db = getFirestore();
-    const orderCollection = collection(db, "orders");
-
-    addDoc(orderCollection, purchase)
-      .then((res) => setOrderId(res.id))
-      .catch((err) => console.log(err));
-  }; */
-
-  /* useEffect(() => {  
-    const baseDatos = getFirestore()
-
-    const baseDatosRef = doc(baseDatos, "orders", id) 
-    
-    getDoc(baseDatosRef)
-    .then((res)=> {
-      const list = res.docs.map((product)=>{
-          return{
-              id:product.id,
-              ...product.data()
-          }
-      })
-      setComprobante(list)
-  })
-    .catch((error) => console.log(error))
-
-  }, []) */
-
-  /* const mostrarRecibo=()=>{
+  useEffect(() => {
+    const baseDatos = getFirestore();
+    const itemCollection = collection(baseDatos, "categorias")
 
 
-    MySwal.fire({
-      title: <strong>Recibo de compra</strong>,
-      html: `<i> ${comprobante.id} </i><br><br>`,
-      text: new Date(),
-      showCloseButton: true,
-      allowOutsideClick: false,
-      
-      
-    });
-  } */
 
+    getDocs(itemCollection)
+        .then(snapshot => {
+            const allData = snapshot.docs.map(document => ({ id: document.id, ...document.data() }))
+
+            setCategories(allData)
+        })
+}, [])
+
+
+
+
+  
   const values = {
     cart,
     addItem,
@@ -203,8 +145,8 @@ const CartContextProvider = ({ children }) => {
     precioTotal,
     productosTotales,
     addToCart,
-    /* compraRealizada, */
-    /* addToCart, */
+    categories
+   
   };
 
   return <CartContext.Provider value={values}>{children}</CartContext.Provider>;

@@ -2,14 +2,14 @@ import React from 'react'
 import ItemListContainer from '../item/ItemListContainer'
 import { useParams } from 'react-router'
 
-const Home = () => {
-  const params = useParams()
+const Productos = () => {
+  const {id} = useParams()
   
   return (
     <div>
-      <ItemListContainer/>
+      <ItemListContainer id={id}/>
     </div>
   )
 }
 
-export default Home
+export default Productos

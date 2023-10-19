@@ -4,13 +4,17 @@ import BarraCategorias from './barraCategorias';
 import { useState } from 'react';
 import { collection, getDocs, getFirestore, snapshotEqual, query, where } from "firebase/firestore"
 import ItemListContainer from '../item/ItemListContainer';
+import CartContext from '../context/cartContext/CartContext';
+import { useContext } from 'react';
+
 
 const BarraCategoriasContainer = () => {
     const [categoriasUnicas, setCategoriasUnicas] = useState([/* "TODOS" */]);
     /* const [, products] = useApiData("https://fakestoreapi.com/products"); */
 
     const [products, setProducts] = useState([])
-
+   
+const {categories}=useContext(CartContext)
     
 
     useEffect(() => {
@@ -18,8 +22,6 @@ const BarraCategoriasContainer = () => {
         const itemCollection = collection(baseDatos, "productos")
 
 
-       /*  const filtrado = query(itemCollection, where("category", "==", "Acción")) */
-        /* getDocs(filtrado) */
 
         getDocs(itemCollection)
             .then(snapshot => {
@@ -29,7 +31,7 @@ const BarraCategoriasContainer = () => {
             })
     }, [])
 
-    useEffect(() => {
+   /*  useEffect(() => {
         if (products) {
             const categorias = [];
 
@@ -41,13 +43,22 @@ const BarraCategoriasContainer = () => {
             });
 
             // Actualizar el estado "categoriasUnicas" con las categorías únicas
-            setCategoriasUnicas([/* "TODOS" */, ...categorias]);
+            setCategoriasUnicas([...categorias]);
         }
-    }, [products]);
+    }, [products]); */
+
+
+
+
+    
+
+
+
+console.log(categories)
 
     return (
        
-            <BarraCategorias categorias={categoriasUnicas} />    
+            <BarraCategorias categorias={categories} />    
     )
 }
 

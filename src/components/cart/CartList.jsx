@@ -94,7 +94,7 @@ const CartList = ({
             <p>Productos: {productosTotales} Unidades </p>
             <p>Total: {precioTotal} $ </p>
 
-            {logged ? <Link to="/Checkout/:orderId" >
+            {logged ? <Link /* to="/Checkout" */ /* to="/carrito" */ >
               <Button onClick={()=>addToCart()}>Comprar</Button>
             </Link>: <Link to="/user" >
               <Button>Comprar</Button>
