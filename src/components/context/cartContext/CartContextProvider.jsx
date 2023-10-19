@@ -33,6 +33,27 @@ const CartContextProvider = ({ children }) => {
     setProductosTotales(totalProductos);
   };
 
+  const addToCart = () => {
+    const purchase = {
+      buyer: {
+        id: 1,
+        name: userData.user,
+        
+      },
+      items: cart,
+      date: new Date(),
+      total: precioTotal,
+    };
+
+    console.log(purchase);
+    const db = getFirestore();
+    const orderCollection = collection(db, "orders");
+
+    addDoc(orderCollection, purchase)
+      .then((res) => setOrderId(res.id))
+      .catch((err) => console.log(err));
+  };
+
   const isInCart = (id) => {
     return cart.some((product) => product.id === id);
   };
@@ -181,6 +202,7 @@ const CartContextProvider = ({ children }) => {
     vaciarCarrito,
     precioTotal,
     productosTotales,
+    addToCart,
     /* compraRealizada, */
     /* addToCart, */
   };

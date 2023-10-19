@@ -15,7 +15,7 @@ const CartList = ({
   compraRealizada
   
 }) => {
-  const { precioTotal, productosTotales } = useContext(CartContext);
+  const { precioTotal, productosTotales, addToCart } = useContext(CartContext);
   const { logActive, logged } = useContext(UserContext);
 
   
@@ -94,8 +94,8 @@ const CartList = ({
             <p>Productos: {productosTotales} Unidades </p>
             <p>Total: {precioTotal} $ </p>
 
-            {logged ? <Link to="/carrito" >
-              <Button onClick={()=>compraRealizada()}>Comprar</Button>
+            {logged ? <Link to="/Checkout/:orderId" >
+              <Button onClick={()=>addToCart()}>Comprar</Button>
             </Link>: <Link to="/user" >
               <Button>Comprar</Button>
             </Link>}

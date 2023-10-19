@@ -19,7 +19,7 @@ const CartListContainer = () => {
   const newUser = (e) => {
     nombreUsuario(e.target.value);
   };
-  const MySwal = withReactContent(Swal);
+ /*  const MySwal = withReactContent(Swal);
 
   const compraRealizada = () => {
     const buttonHtml = `<button id="custom-button" class="btn btn-primary">Emitir recibo</button>`;
@@ -40,10 +40,10 @@ const CartListContainer = () => {
       MySwal.close();
       mostrarRecibo();
     });
-    /* setCart([]); */
-  };
+    
+  }; */
   
-  const mostrarRecibo=()=>{
+  /* const mostrarRecibo=()=>{
 
 
     MySwal.fire({
@@ -55,9 +55,9 @@ const CartListContainer = () => {
       
       
     });
-  }
+  } */
   
-  const addToCart = () => {
+  /* const addToCart = () => {
     const purchase = {
       buyer: {
         id: 1,
@@ -76,7 +76,10 @@ const CartListContainer = () => {
     addDoc(orderCollection, purchase)
       .then((res) => setOrderId(res.id))
       .catch((err) => console.log(err));
-  };
+  }; */
+
+
+
   return (
     <div>
       {cart.length > 0 ? (
@@ -86,7 +89,7 @@ const CartListContainer = () => {
           vaciarCarrito={vaciarCarrito}
           newUser={newUser}
           userData={userData}
-          compraRealizada={compraRealizada}
+          /* compraRealizada={compraRealizada} */
           
         />
       ) : (
