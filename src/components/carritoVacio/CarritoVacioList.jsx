@@ -12,7 +12,7 @@ const CarritoVacioList = ({logOut, vaciarCarrito}) => {
 
     return (
 
-        <div className={styles.contenedorBase}> 
+        <div className={styles.contenedorBaseCarritoVacio}> 
             <p className={styles.bienvenido}>Bienvenido, {userData.user} </p>
             <NavLink to="/user" className={styles.contenedorCerrarSesion} onClick={() => { vaciarCarrito(), logOut() }}>
                 <p>Cerrar sesión</p>

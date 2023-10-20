@@ -57,6 +57,8 @@ const CartContextProvider = ({ children }) => {
     addDoc(orderCollection, purchase)
       .then((res) => navigate('/Checkout/'+ res.id)) /* Redirijo hacia checkout */
       .catch((err) => console.log(err));
+
+      setCart([])
   };
 
   const isInCart = (id) => {

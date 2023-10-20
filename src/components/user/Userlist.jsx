@@ -21,52 +21,56 @@ const UserList = ({ getUserData, validation, inicioSesion, userData }) => {
       action=""
       className={styles.formularioContainerCarrito}
     >
-      <div className={styles.formularioIniciarSesion}>
-        <h1>Iniciar Sesión</h1>
+      <div className={styles.contenedorFormularioIniciarSesion}>
+        <div className={styles.formularioIniciarSesion}>
+          <h1>Iniciar Sesión</h1>
 
-        <div className={styles.formularioRecuadroCarrito}>
-          
-          <label htmlFor="text"><BiUser/></label>
-          
-          <input 
-            type="text"
-            name="user"
-            id="user"
-            placeholder="  Usuario"
-            onChange={getUserData}
-            required
-          />
-        </div>
-        <div className={styles.formularioRecuadroCarrito}>
-          
-          <label htmlFor="text"><BiUser/></label>
-          
-          <input 
-            type="email"
-            name="email"
-            id="email"
-            placeholder="  Email"
-            onChange={getUserData}
-            required
-          />
-        </div>
+          <div className={styles.formularioRecuadroCarrito}>
+            <label htmlFor="text">
+              
+            </label>
 
-        <div className={styles.formularioRecuadroCarrito}>
-          <label htmlFor="name"></label>
-          <input
-            type="password"
-            name="pass"
-            id="name"
-            onChange={getUserData}
-            placeholder="  Contraseña"
-            required
-          />
-        </div>
+            <input
+              type="text"
+              name="user"
+              id="user"
+              placeholder="  Usuario"
+              onChange={getUserData}
+              required
+            />
+          </div>
+          <div className={styles.formularioRecuadroCarrito}>
+            <label htmlFor="text">
+              
+            </label>
 
-        <div className={styles.CartBtnContainer}>
-          <button className="btn btn-primary" type="submit">
-            Continuar
-          </button>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="  Email"
+              onChange={getUserData}
+              required
+            />
+          </div>
+
+          <div className={styles.formularioRecuadroCarrito}>
+            <label htmlFor="name"></label>
+            <input
+              type="password"
+              name="pass"
+              id="name"
+              onChange={getUserData}
+              placeholder="  Contraseña"
+              required
+            />
+          </div>
+
+          <div className={styles.CartBtnContainer}>
+            <button className="btn btn-primary" type="submit">
+              Continuar
+            </button>
+          </div>
         </div>
       </div>
     </form>

@@ -14,18 +14,18 @@ const BarraCategorias = ({ categorias }) => {
         <NavLink
           to="/productos/"
           className={({ isActive }) =>
-            isActive ? `${styles.linkActive}` : `${styles.barraCategoriasItem}`
+            isActive ? `${styles.linkActiveCategorias}` : `${styles.barraCategoriasItem}`
           }
         >
           Todos
         </NavLink>
         {categorias.map((categoria) => (
           <NavLink
-            onClick={() => seleccionarCategoria(categoria)}
-            to={`/categoria/${categoria}`}
+            /* onClick={() => seleccionarCategoria(categoria)} */
+            to={`/categoria/${categoria.category}`}
             className={({ isActive }) =>
               isActive
-                ? `${styles.linkActive}`
+                ? `${styles.linkActiveCategorias}`
                 : `${styles.barraCategoriasItem}`
             }
             key={categoria.category}

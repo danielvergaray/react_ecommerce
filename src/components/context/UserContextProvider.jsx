@@ -28,7 +28,7 @@ const UserContextProvider = ({ children }) => {
       user: "",
       pass: "",
     })
-
+setLogged(false)
   }
 
   useEffect(() => {

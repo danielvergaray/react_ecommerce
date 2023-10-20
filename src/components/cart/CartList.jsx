@@ -12,36 +12,38 @@ const CartList = ({
   vaciarCarrito,
   logOut,
   userData,
-  compraRealizada
-  
+  compraRealizada,
 }) => {
   const { precioTotal, productosTotales, addToCart } = useContext(CartContext);
   const { logActive, logged } = useContext(UserContext);
 
-  
   return (
     <div className={styles.contenedorBase}>
+      
+      <div className={styles.contenedorIniciarSesionSuperior}>
       <p className={styles.bienvenido}>Bienvenido {userData.user} </p>
-      {!logged ? (
-        <NavLink
-          to="/user"
-          className={
-            styles.contenedorCerrarSesion
-          } /* onClick={() => { vaciarCarrito(), logOut() }} */
-        >
-          <p>Iniciar sesión</p>
-        </NavLink>
-      ) : (
-        <NavLink
-          to="/user"
-          className={styles.contenedorCerrarSesion}
-          onClick={() => {
-            vaciarCarrito(), logOut();
-          }}
-        >
-          <p>Cerrar sesión</p>
-        </NavLink>
-      )}
+        {!logged ? (
+          <NavLink
+            to="/user"
+            className={
+              styles.contenedorCerrarSesion
+            } /* onClick={() => { vaciarCarrito(), logOut() }} */
+          >
+            <p>Iniciar sesión</p>
+          </NavLink>
+        ) : (
+          <NavLink
+            to="/user"
+            className={styles.contenedorCerrarSesion}
+            onClick={() => {
+              vaciarCarrito(), logOut();
+            }}
+          >
+            <p>Cerrar sesión</p>
+          </NavLink>
+        )}
+      </div>
+
       <div className={styles.mainContenedorCarrito}>
         <div className={styles.carritoContainer}>
           <h1 className={styles.carritoTitulo}>
@@ -94,12 +96,15 @@ const CartList = ({
             <p>Productos: {productosTotales} Unidades </p>
             <p>Total: {precioTotal} $ </p>
 
-            {logged ? <Link /* to="/Checkout" */ /* to="/carrito" */ >
-              <Button onClick={()=>addToCart()}>Comprar</Button>
-            </Link>: <Link to="/user" >
-              <Button>Comprar</Button>
-            </Link>}
-            
+            {logged ? (
+              <Link to="/Checkout">
+                <Button onClick={() => addToCart()}>Comprar</Button>
+              </Link>
+            ) : (
+              <Link to="/user">
+                <Button>Comprar</Button>
+              </Link>
+            )}
           </div>
         </div>
       </div>
