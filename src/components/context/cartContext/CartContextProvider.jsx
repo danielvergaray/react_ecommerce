@@ -132,7 +132,7 @@ const CartContextProvider = ({ children }) => {
         })
 }, [])
 
-
+console.log(categories)
 
 
   
