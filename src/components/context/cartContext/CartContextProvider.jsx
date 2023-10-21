@@ -118,7 +118,7 @@ const CartContextProvider = ({ children }) => {
     setItem2(item.stock) /* De esta forma puedo usar el todo el componente, una variable que llega a una sola funcion */
   };
 
-  console.log(item2)
+  
   const removeItem = (id) => {
     const newCart = cart.filter((producto) => producto.id !== id);
     setCart(newCart);

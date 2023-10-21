@@ -41,8 +41,40 @@ const ItemList = ({ productos, verMas, btnMas }) => {
                             </Card.Body>
                             
                         </Card>
+
+
+
                     ))}
                 </div>
+
+
+                <div className={styles.productosContainerMobile}>
+                    {productos.map((producto) => (
+
+                        <Card key={producto.id} style={{ width: '10rem', border: "none" }}>
+
+                            <Link to={`/detalles/${producto.id}`}>
+                                <Card.Img
+                                    style={{ borderRadius: "10px", maxWidth: "100%", height: "auto" }}
+                                    variant="top"
+                                    src={producto.imageSmall}
+                                />
+                            </Link>
+                            <Card.Body>
+                                <Card.Title style={{fontSize:"17px"}}>{producto.name}</Card.Title>
+                                <Card.Text style={{fontSize:"15px"}}>{producto.price} $</Card.Text>
+
+                            </Card.Body>
+                            
+                        </Card>
+
+
+
+                    ))}
+                </div>
+
+
+
 
                 {/* <div className={styles.btnVerMas}>
                     {btnMas && <button className='btn btn-primary' onClick={verMas}>Ver más productos</button>}

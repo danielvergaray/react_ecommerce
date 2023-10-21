@@ -17,18 +17,18 @@ const NavBarList = ({ opciones, logged, userData, cart }) => {
   const { calculoCuenta, productosTotales } = useContext(CartContext);
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
-      <Container fluid className={styles.navbar}>
-        <div style={{ padding: "0 50px" }} href="#">
+    <Navbar  expand="lg" className="bg-body-tertiary">
+      <Container  fluid className={styles.navbar}>
+        <div className={styles.navBarLogoContainer} href="#">
           <NavLink to="/">
             <img className={styles.navBarLogo} src={logo} alt="Logo" />
           </NavLink>
         </div>
-        <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse style={{ padding: "0 50px" }} id="navbarScroll">
+        <Navbar.Toggle style={{backgroundColor:"white"}} aria-controls="navbarScroll" />
+        <Navbar.Collapse style={{ padding: "0 30px", textAlign:"center" }} id="navbarScroll">
           <Nav
             className="me-auto my-2 my-lg-0"
-            style={{ maxHeight: "100px", padding: "0px" }}
+            style={{ maxHeight: "100px", padding: "10px 0px", textAlign:"center"}}
             navbarScroll
           >
             {opciones.map((opcion, index) => (
@@ -39,7 +39,7 @@ const NavBarList = ({ opciones, logged, userData, cart }) => {
                   }
                   to={opcion}
                 >
-                  {/* {index === 0 ? "Inicio" : opcion} */}
+                  
                   {opcion}
                 </NavLink>
               </div>

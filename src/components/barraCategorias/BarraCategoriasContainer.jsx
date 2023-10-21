@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import useApiData from '../customHooks/useApiData'
-import BarraCategorias from './barraCategorias';
+import BarraCategorias from './BarraCategorias';
 import { useState } from 'react';
 import { collection, getDocs, getFirestore, snapshotEqual, query, where } from "firebase/firestore"
 import ItemListContainer from '../item/ItemListContainer';

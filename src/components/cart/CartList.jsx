@@ -15,7 +15,7 @@ const CartList = ({
   userData,
   compraRealizada,
   loading,
-  item2
+  /* item2 */
 }) => {
   const { precioTotal, productosTotales, addToCart, /* item2 */ } = useContext(CartContext);
   const { logActive, logged } = useContext(UserContext);
@@ -92,7 +92,7 @@ const CartList = ({
               </div>
             </div>
           ))}
-          <NavLink to="/productos" style={{ margin: "auto" }}>
+          <NavLink to="/productos" className={styles.btnRegresarContainer}>
             <Button>Regresar</Button>
           </NavLink>
         </div>
