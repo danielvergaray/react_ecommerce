@@ -15,7 +15,7 @@ const CounterList = ({ incrementar, disminuir, count, onAdd, mensaje, reiniciarC
   }, [disminuir, incrementar, count, onAdd]) 
 
 
-  console.log(stockFull, "esto")
+
   return (
     <>
       {

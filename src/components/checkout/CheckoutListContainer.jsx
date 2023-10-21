@@ -36,13 +36,16 @@ const CheckoutListContainer = ({ orderId }) => {
   const emitirRecibo = () => {
     setCompraRealizada(!compraRealizada);
     setShowRecibo(!showRecibo);
+    
   };
+
+  
  
   return (
 <div>
 
 
-    {loading ? (<CustomSpinner animation="border" message="Cargando..." />
+    {loading  ? (<CustomSpinner animation="border" message="Cargando..." />
     ): (
       <CheckoutList
       orderId={orderId}
@@ -60,3 +63,8 @@ const CheckoutListContainer = ({ orderId }) => {
 };
 
 export default CheckoutListContainer;
+
+
+
+
+

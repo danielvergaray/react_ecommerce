@@ -6,7 +6,7 @@ import CounterList from "../counter/CounterList";
 import CounterListContainer from "../counter/CounterListContainer";
 
 const ItemDetail = ({ item, onAdd, mensaje, count }) => {
-  console.log(item)
+  
   return (
     <div className={styles.contenedorProductos}>
       <div className={styles.contenedorDetalleProductos}>

@@ -1,5 +1,4 @@
 import React from "react";
-import ListGroup from "react-bootstrap/ListGroup";
 import styles from "../../style.module.css";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
@@ -13,8 +12,8 @@ const CheckoutList = ({
   showRecibo,
 
 }) => {
- console.log(comprobante)
- console.log(comprobante.items)
+console.log(comprobante.items)
+console.log(comprobante)
   return (
     <div
     className={showRecibo ? styles.containerCheckoutBoleta : styles.containerCheckout}
