@@ -6,6 +6,7 @@ import CounterList from "../counter/CounterList";
 import CounterListContainer from "../counter/CounterListContainer";
 
 const ItemDetail = ({ item, onAdd, mensaje, count }) => {
+  console.log(item)
   return (
     <div className={styles.contenedorProductos}>
       <div className={styles.contenedorDetalleProductos}>
@@ -24,7 +25,8 @@ const ItemDetail = ({ item, onAdd, mensaje, count }) => {
             <div className={styles.contenedorBtn}>
               <CounterListContainer item= {item} onAdd={onAdd} mensaje={mensaje} />
               <ToastContainer />{" "}
-            </div>
+            </div><br />
+            <p>Stock original disponible: {item.stock} und </p>
           </div>
         </div>
       </div>
