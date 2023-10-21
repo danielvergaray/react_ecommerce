@@ -16,8 +16,10 @@ const ItemListContainer = ({id}) => {
 
   const [btnMas, setBtnMas] = useState(true);
 
+  const [loading, setLoading] = useState(true);
+
   /* const { id } = useParams() */
-console.log(id)
+
 /*   const URL =
     id && id !== "TODOS"
       ? `https://fakestoreapi.com/products/category/${id}`
@@ -42,6 +44,9 @@ console.log(id)
        setItems(list)
    })
    .catch((error)=> console.log(error))
+   .finally(()=>{
+    setLoading(false)
+   })
 }, [id])
 
 
@@ -271,7 +276,7 @@ else if (categorySelected==="Fantasía"){
 
   return (
     <div>
-      {/* loading || */ items === null ? (
+      {loading || items === null ? (
         <CustomSpinner animation="border" message="Cargando..." />
       ) : (
         <ItemList /* productos={products} */ productos={items} verMas={verMas} btnMas={btnMas} />

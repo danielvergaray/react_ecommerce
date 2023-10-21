@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import CounterList from './CounterList'
 import ItemDetailContainer from '../details/ItemDetailContainer'
+import CartContext from '../context/cartContext/CartContext'
+import { useContext } from 'react'
 
 const CounterListContainer = ({onAdd, mensaje, item}) => {
 
+const {mensajeSinStock}=useContext(CartContext)  
 const [count, setCount]= useState(1)
 
 /* const increment= ()=>{
@@ -18,6 +21,8 @@ const decrement= ()=>{
 const increment= ()=>{
   if(count<item.stock){
     setCount(count+1)
+  } else {
+    mensajeSinStock()
   }
   
 }

@@ -3,13 +3,13 @@ import CheckoutList from "./CheckoutList";
 import { doc, getDoc, getFirestore } from "firebase/firestore";
 import { useContext } from "react";
 import UserContext from "../context/UserContext";
-
+import CustomSpinner from "../reutilizables/Spinner";
 
 const CheckoutListContainer = ({ orderId }) => {
   const [showRecibo, setShowRecibo] = useState(false);
 
   const { logOut } = useContext(UserContext);
-  
+  const [loading, setLoading]= useState(true)
 
   const [comprobante, setComprobante] = useState([]);
   const [compraRealizada, setCompraRealizada] = useState(false);
@@ -26,16 +26,25 @@ const CheckoutListContainer = ({ orderId }) => {
           });
         }
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.log(error))
+      .finally(()=>{
+        setLoading(false)
+       })
+      
   }, []);
 
   const emitirRecibo = () => {
     setCompraRealizada(!compraRealizada);
     setShowRecibo(!showRecibo);
   };
-  console.log(comprobante);
+ 
   return (
-    <CheckoutList
+<div>
+
+
+    {loading ? (<CustomSpinner animation="border" message="Cargando..." />
+    ): (
+      <CheckoutList
       orderId={orderId}
       comprobante={comprobante}
       emitirRecibo={emitirRecibo}
@@ -44,6 +53,9 @@ const CheckoutListContainer = ({ orderId }) => {
       showRecibo={showRecibo}
       
     />
+    )}
+</div>
+    
   );
 };
 

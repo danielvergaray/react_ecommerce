@@ -13,9 +13,7 @@ const CheckoutList = ({
   showRecibo,
 
 }) => {
-  console.log(comprobante.total);
-
-  console.log(showRecibo)
+ 
   return (
     <div
     className={showRecibo ? styles.containerCheckoutBoleta : styles.containerCheckout}

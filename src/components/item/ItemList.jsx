@@ -41,12 +41,6 @@ const ItemList = ({ productos, verMas, btnMas }) => {
                             </Card.Body>
                             
                         </Card>
-
-
-
-
-
-
                     ))}
                 </div>
 

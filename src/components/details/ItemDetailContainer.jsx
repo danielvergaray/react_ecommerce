@@ -3,6 +3,7 @@ import ItemDetail from "./ItemDetail";
 import useApiData from "../customHooks/useApiData";
 import CartContext from "../context/cartContext/CartContext";
 import { doc, getDoc, getFirestore, snapshotEqual } from "firebase/firestore"
+import CustomSpinner from "../reutilizables/Spinner";
 
 import CounterListContainer from "../counter/CounterListContainer";
 
@@ -15,6 +16,7 @@ const ItemDetailContainer = ({ id, count }) => {
   }
 
   const [item, setItem] = useState(null)
+  const [loading, setLoading]= useState(true)
 
   const { addItem, mensaje } = useContext(CartContext)
 
@@ -33,6 +35,9 @@ const ItemDetailContainer = ({ id, count }) => {
       }
     })
     .catch((error) => console.log(error))
+    .finally(()=>{
+      setLoading(false)
+    })
 
   }, [])
 
@@ -48,8 +53,12 @@ const ItemDetailContainer = ({ id, count }) => {
 
 return (
   <>
-    {item !== null && <ItemDetail item={item} onAdd={onAdd} mensaje={mensaje} count={count} removeProduct={removeProduct} />}
-   {/*  <CounterListContainer item={item}  /> */}
+  {loading ? (<CustomSpinner animation="border" message="Cargando..." />):
+  (
+    item !== null && <ItemDetail item={item} onAdd={onAdd} mensaje={mensaje} count={count} removeProduct={removeProduct} />
+  ) }
+    
+   
   </>
 );
   

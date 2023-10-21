@@ -12,7 +12,7 @@ const NavBarListContainer = () => {
   const datosNavBar = {
 
     /* opcionesMenu: ["/", "Productos", "Noticias"], */
-    opcionesMenu: ["Productos", "Noticias"],
+    opcionesMenu: ["Productos", "Noticias", "Contacto"],
     
   }
 

@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import CartContext from "../context/cartContext/CartContext";
 
 const BarraCategorias = ({ categorias }) => {
-  console.log(categorias)
+  
   const { seleccionarCategoria } = useContext(CartContext);
   return (
     <div>

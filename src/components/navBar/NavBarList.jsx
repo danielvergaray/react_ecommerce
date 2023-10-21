@@ -10,7 +10,7 @@ import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import logo from "../../components/imagenes/logo.png";
+import logo from "../../components/imagenes/logoGameStation.png";
 import CartContext from "../context/cartContext/CartContext";
 
 const NavBarList = ({ opciones, logged, userData, cart }) => {
@@ -88,7 +88,7 @@ const NavBarList = ({ opciones, logged, userData, cart }) => {
             </div>
           </div>
 
-          <Form className="d-flex">
+          {/* <Form className="d-flex">
             <Form.Control
               type="search"
               placeholder="Buscar"
@@ -98,7 +98,7 @@ const NavBarList = ({ opciones, logged, userData, cart }) => {
             <Button variant="outline-success">
               <ImSearch />
             </Button>
-          </Form>
+          </Form> */}
         </Navbar.Collapse>
       </Container>
     </Navbar>

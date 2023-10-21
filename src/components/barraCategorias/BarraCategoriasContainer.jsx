@@ -48,14 +48,6 @@ const {categories}=useContext(CartContext)
     }, [products]); */
 
 
-
-
-    
-
-
-
-console.log(categories)
-
     return (
        
             <BarraCategorias categorias={categories} />    

@@ -5,6 +5,7 @@ import styles from "../../style.module.css";
 import { Button } from "react-bootstrap";
 import CartContext from "../context/cartContext/CartContext";
 import UserContext from "../context/UserContext";
+import CustomSpinner from "../reutilizables/Spinner";
 
 const CartList = ({
   cart,
@@ -13,8 +14,10 @@ const CartList = ({
   logOut,
   userData,
   compraRealizada,
+  loading,
+  item2
 }) => {
-  const { precioTotal, productosTotales, addToCart } = useContext(CartContext);
+  const { precioTotal, productosTotales, addToCart, /* item2 */ } = useContext(CartContext);
   const { logActive, logged } = useContext(UserContext);
 
   return (
@@ -69,6 +72,10 @@ const CartList = ({
                   Precio Online: {producto.price} $
                 </p>
                 <p>Cantidad: {producto.quantity} und</p>
+
+                {/* {producto.quantity <= item2 ?
+                  (<p>Cantidad: {producto.quantity} und</p> ):( <p>Cantidad: {item2} und</p>)
+                } */}
                 <p>
                   Total:{" "}
                   {Math.ceil(producto.price * producto.quantity * 100) / 100} ${" "}
@@ -96,8 +103,8 @@ const CartList = ({
             <p>Productos: {productosTotales} Unidades </p>
             <p>Total: {precioTotal} $ </p>
 
-            {logged ? (
-              <Link to="/Checkout">
+            {logged  ? (
+              <Link to="/Checkout/:orderId">
                 <Button onClick={() => addToCart()}>Comprar</Button>
               </Link>
             ) : (

@@ -10,10 +10,11 @@ import withReactContent from "sweetalert2-react-content";
 import Checkout from "../pages/Checkout";
 
 const CartListContainer = () => {
-  const { cart, removeItem, vaciarCarrito, precioTotal } = useContext(CartContext);
+  const { cart, removeItem, vaciarCarrito, precioTotal, loading } = useContext(CartContext);
   const { userData, nombreUsuario } = useContext(UserContext);
   
   const [orderId, setOrderId] = useState("");
+  
   
 
   const newUser = (e) => {
@@ -89,6 +90,7 @@ const CartListContainer = () => {
           vaciarCarrito={vaciarCarrito}
           newUser={newUser}
           userData={userData}
+          loading= {loading}
           /* compraRealizada={compraRealizada} */
           
         />
