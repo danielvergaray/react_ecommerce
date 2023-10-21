@@ -26,6 +26,7 @@ console.log(comprobante)
             Tu pedido ha sido confirmado. Estamos procesando tu compra y te
             enviaremos una confirmación por correo electrónico.
           </p>
+          <p>Order Id: {orderId} </p>
           <div className={styles.checkoutContenedorBotones}>
             <Link to="/">
               <Button className={styles.btnCheckout}>Ir al inicio</Button>
@@ -36,14 +37,14 @@ console.log(comprobante)
               </Button>
             </Link>
 
-            <Button className={styles.btnCheckout} onClick={emitirRecibo}>
+            {/* <Button className={styles.btnCheckout} onClick={emitirRecibo}>
               Emitir Recibo
-            </Button>
+            </Button> */}
           </div>
         </div>
       )}
 
-      {compraRealizada & showRecibo ? (
+      {/* {compraRealizada & showRecibo ? (
         <div className={styles.checkoutReciboContainer}>
           <h2>Recibo de compra</h2>
           <p style={{margin:"0 10px", fontWeight:"bolder"}}>Número comprobante : {orderId} </p>
@@ -92,7 +93,7 @@ console.log(comprobante)
         </div>
       ) : (
         ""
-      )}
+      )} */}
     </div>
   );
 };
