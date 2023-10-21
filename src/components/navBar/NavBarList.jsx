@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import styles from "../../style.module.css";
 import { FaShoppingCart } from "react-icons/fa";
-import { ImSearch } from "react-icons/Im";
+
 import { Link, NavLink } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
 import Button from "react-bootstrap/Button";
